@@ -1,2 +1,0 @@
-# FamilyApp_FrontEnd
- frontend
