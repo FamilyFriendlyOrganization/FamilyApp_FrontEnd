@@ -6,7 +6,7 @@ import Login from "./Component/Login/Login";
 import SignUp from "./Component/SignUp/SignUp";
 
 function App() {
-  return <SignUp />;
+  return <Welcome />;
 }
 
 export default App;
