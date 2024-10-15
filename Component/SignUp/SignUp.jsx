@@ -36,12 +36,12 @@ const SignUp = () => {
         <Text style={styles.formTitle}>Đăng ký</Text>
 
         <View style={styles.inputContainer}>
-          <Image source={user} style={styles.icon} />
+          <Image source={user} style={styles.icon} resizeMode="contain" />
           <TextInput placeholder="Nhập tên tài khoản" style={styles.input} />
         </View>
 
         <View style={styles.inputContainer}>
-          <Image source={key} style={styles.icon} />
+          <Image source={key} style={styles.icon} resizeMode="contain" />
           <TextInput
             placeholder="Nhập mật khẩu"
             secureTextEntry
@@ -50,12 +50,12 @@ const SignUp = () => {
         </View>
 
         <View style={styles.inputContainer}>
-          <Image source={mail} style={styles.icon} />
+          <Image source={mail} style={styles.icon} resizeMode="contain" />
           <TextInput placeholder="Nhập email của bạn" style={styles.input} />
         </View>
 
         <View style={styles.inputContainer}>
-          <Image source={heart} style={styles.icon} />
+          <Image source={heart} style={styles.icon} resizeMode="contain" />
           <TextInput
             placeholder="Nhập tên bạn muốn dùng"
             style={styles.input}
@@ -73,15 +73,27 @@ const SignUp = () => {
         {/* Thiết kế hàng chứa các biểu tượng Facebook, X và GitHub */}
         <View style={styles.socialIconsContainer}>
           <TouchableOpacity>
-            <Image source={facebook} style={styles.socialIcon} />
+            <Image
+              source={facebook}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Image source={xicon} style={styles.socialIcon} />
+            <Image
+              source={xicon}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Image source={github} style={styles.socialIcon} />
+            <Image
+              source={github}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
           </TouchableOpacity>
         </View>
       </View>

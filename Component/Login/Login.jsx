@@ -24,17 +24,21 @@ const Login = () => {
         <Text style={styles.formTitle}>Đăng nhập</Text>
 
         {/* Google logo */}
-        <Image source={googleLogo} style={styles.googleLogo} />
+        <Image
+          source={googleLogo}
+          style={styles.googleLogo}
+          resizeMode="contain"
+        />
 
         {/* Email/SĐT input */}
         <View style={styles.inputContainer}>
-          <Image source={mail} style={styles.icon} />
+          <Image source={mail} style={styles.icon} resizeMode="contain" />
           <TextInput placeholder="Nhập email/SĐT" style={styles.input} />
         </View>
 
         {/* Mật khẩu input */}
         <View style={styles.inputContainer}>
-          <Image source={key} style={styles.icon} />
+          <Image source={key} style={styles.icon} resizeMode="contain" />
           <TextInput
             placeholder="Nhập mật khẩu"
             secureTextEntry
@@ -67,15 +71,27 @@ const Login = () => {
         <Text style={styles.socialLoginText}>Đăng nhập bằng:</Text>
         <View style={styles.socialIconsContainer}>
           <TouchableOpacity>
-            <Image source={facebook} style={styles.socialIcon} />
+            <Image
+              source={facebook}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Image source={xicon} style={styles.socialIcon} />
+            <Image
+              source={xicon}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Image source={github} style={styles.socialIcon} />
+            <Image
+              source={github}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -103,8 +119,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   googleLogo: {
-    width: 150,
-    height: 50,
+    width: 200, // Tăng kích thước chiều rộng
+    height: 60, // Tăng kích thước chiều cao cho tỷ lệ hợp lý
     marginBottom: 20,
   },
   inputContainer: {
