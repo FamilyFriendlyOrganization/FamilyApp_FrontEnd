@@ -18,22 +18,42 @@ const Welcome = () => {
     <ImageBackground source={backgroundImage} style={styles.background}>
       <View style={styles.container}>
         <View style={styles.content}>
-          <Image source={familyIcon} style={styles.familyIcon} />
+          <Image
+            source={familyIcon}
+            style={styles.familyIcon}
+            resizeMode="contain"
+          />
           <Text style={styles.title}>Family App</Text>
           <Text style={styles.welcomeText}>
-            <Image source={handIcon} style={styles.handIcon} /> Xin chào, chào
-            mừng trở lại
+            <Image
+              source={handIcon}
+              style={styles.handIcon}
+              resizeMode="contain"
+            />{" "}
+            Xin chào, chào mừng trở lại
           </Text>
           <TouchableOpacity style={styles.loginButton}>
-            <Image source={googleIcon} style={styles.icon} />
+            <Image
+              source={googleIcon}
+              style={styles.icon}
+              resizeMode="contain"
+            />
             <Text style={styles.loginText}>Đăng nhập bằng Google</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.loginButton}>
-            <Image source={phoneIcon} style={styles.icon} />
+            <Image
+              source={phoneIcon}
+              style={styles.icon}
+              resizeMode="contain"
+            />
             <Text style={styles.loginText}>Đăng nhập bằng SĐT</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.loginButton}>
-            <Image source={facebookIcon} style={styles.icon} />
+            <Image
+              source={facebookIcon}
+              style={styles.icon}
+              resizeMode="contain"
+            />
             <Text style={styles.loginText}>Đăng nhập bằng Facebook</Text>
           </TouchableOpacity>
           <Text style={styles.signupText}>
