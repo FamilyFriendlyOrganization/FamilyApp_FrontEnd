@@ -1,0 +1,39 @@
+.header{
+    border-radius: 0 0 45px 45px;
+}
+
+.main{
+    
+    .findBtn{
+        padding:  5px 10px;
+        border-radius: 25px;
+
+        input{
+            font-weight: bold;
+            padding: 15px 50px;
+            font-size: 15px;
+            background: transparent;
+        }
+        input:focus{
+            outline: none;
+        }
+    }
+    .carousel-wrapper {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .react-multi-carousel-item {
+        display: block; 
+        width: 100%; 
+        padding: 10px;
+    }
+    
+    .carousel-container {
+        width: 100%; 
+    }
+        
+}

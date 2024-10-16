@@ -6,6 +6,7 @@ import "./Welcome.scss";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+
 const Welcome = () => {
   const navigate = useNavigate();
 
@@ -43,7 +44,7 @@ const Welcome = () => {
               <h2 className="text-white text-[25px]">Chưa có tài khoản?</h2>
               <span
                 className="text-green-500 text-[25px] cursor-pointer"
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/signup")}
               >
                 Đăng ký ngay
               </span>

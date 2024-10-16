@@ -24,13 +24,13 @@ const Login = () => {
       <div className="w-full h-full bg-login bg-cover bg-center bg-no-repeat relative">
         <div className="h-30 flex items-center justify-center"></div>
         <form
-          className="flex items-center justify-center main bg-white opacity-65 relative flex-col space-y-3.5"
+          className="flex items-center justify-center main bg-white relative flex-col space-y-3.5 h-fit"
           onSubmit={(e) => handleSubmit(e)}
         >
           <h2 className="text-pink-600 font-bold text-[40px]">Đăng nhập</h2>
-          <img src={gg} style={{ maxWidth: "170px" }} />
-          <div className="input-group  flex items-center h-[63px]">
-            <span className="icon p-[10px] h-[100%] flex items-center justify-center ml-10">
+          <img src={gg} style={{ maxWidth: "173px" }} />
+          <div className="input-group  flex items-center h-[63px] bg-gray-100">
+            <span className="p-[10px] h-[100%] flex items-center justify-center ml-10">
               <MdOutlineEmail fontSize="50px" />
             </span>
             <span className="icon-lines h-[180%]">
@@ -40,7 +40,6 @@ const Login = () => {
               />
             </span>
             <input
-              className="font-bold text-[20px] bg-white h-[100%]"
               type="email"
               placeholder="Nhập email/SĐT"
               name="email"
@@ -48,7 +47,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             ></input>
           </div>
-          <div className="input-group  flex items-center h-[63px]">
+          <div className="input-group  flex items-center h-[63px] bg-gray-100">
             <span className="icon p-[10px] h-[100%] flex items-center justify-center ml-10">
               <PiKeyBold fontSize="50px" />
             </span>
@@ -59,7 +58,6 @@ const Login = () => {
               />
             </span>
             <input
-              className="font-bold text-[20px] bg-white h-[100%]"
               type={isShowPassWord ? "text" : "password"}
               placeholder="Nhập mật khẩu"
               name="password"
@@ -82,16 +80,29 @@ const Login = () => {
               </span>
             )}
           </div>
-          <span
-            className="text-red-600 font-bold text-[25px] mr-[330px] cursor-pointer"
-            onClick={() => navigate("/")}
-          >
-            Quên mật khẩu?
-          </span>
+          <div className="flex items-center justify-center space-x-[175px]">
+            <div class="font-bold text-[25px] space-x-2 flex justify-center">
+              <input
+                class="text-[25px] transform scale-150"
+                type="checkbox"
+                id="flexCheckDefault"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Ghi nhớ tôi
+              </label>
+            </div>
+
+            <span
+              className="text-red-600 font-bold text-[25px] cursor-pointer"
+              onClick={() => navigate("/")}
+            >
+              Quên mật khẩu?
+            </span>
+          </div>
           <button className="bg-purple-600 btnSubmit">Tiếp tục</button>
           <span
             className="text-blue-700 font-bold text-[25px] mr-[190px] cursor-pointer"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/signup")}
           >
             Chưa có tài khoản? <i>Tạo ngay</i>
           </span>
