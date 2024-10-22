@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.scss";
 import gg from "../assets/gg.png";
-import { MdOutlineEmail } from "react-icons/md";
 import { PiLineVerticalLight } from "react-icons/pi";
 import { RxEyeOpen } from "react-icons/rx";
 import { PiEyeClosedLight } from "react-icons/pi";
@@ -10,14 +9,34 @@ import { PiKeyBold } from "react-icons/pi";
 import { FaFacebook } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
+import { login } from "../service/Auth";
+import { toast } from "react-toastify";
+import { LuUser2 } from "react-icons/lu";
+import { useDispatch } from "react-redux";
+import { doLogin } from "../redux/action/userAction";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isShowPassWord, setIsShowPassWord] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let res = await login(username, password);
+
+    if (res) {
+      console.log(res.data);
+      dispatch(doLogin(res.data));
+      toast.success("Đăng nhập thành công!");
+
+      navigate("/home");
+    } else {
+      toast.error("Đăng nhập thất bại :(");
+    }
+  };
 
   return (
     <>
@@ -31,7 +50,7 @@ const Login = () => {
           <img src={gg} style={{ maxWidth: "173px" }} />
           <div className="input-group  flex items-center h-[63px] bg-gray-100">
             <span className="p-[10px] h-[100%] flex items-center justify-center ml-10">
-              <MdOutlineEmail fontSize="50px" />
+              <LuUser2 fontSize="50px" />
             </span>
             <span className="icon-lines h-[180%]">
               <PiLineVerticalLight
@@ -40,11 +59,11 @@ const Login = () => {
               />
             </span>
             <input
-              type="email"
-              placeholder="Nhập email/SĐT"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Nhập tên đăng nhập"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             ></input>
           </div>
           <div className="input-group  flex items-center h-[63px] bg-gray-100">
