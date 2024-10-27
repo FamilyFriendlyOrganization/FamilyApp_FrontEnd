@@ -29,7 +29,7 @@ const userReducer = (state = INIT_STATE, action) =>{
             case "UPDATE_ACCOUNT":
                 return {
                     ...state,
-                    account: action.payload, // Cập nhật tài khoản mới vào Redux store
+                    account: action.payload, 
                 };
             default: return state;
     }

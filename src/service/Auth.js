@@ -10,3 +10,4 @@ export const login = (username, password) => {
   };
 
 export const updateProfile = (id, updateData) => axios.put(`accounts/${id}`, updateData)
+

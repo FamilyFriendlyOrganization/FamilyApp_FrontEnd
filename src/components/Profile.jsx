@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../service/Auth";
 import { toast } from "react-toastify";
 import { updateAccount } from "../redux/action/userAction";
+import { FaCamera } from "react-icons/fa";
 
 const Profile = () => {
   const account = useSelector((state) => state.user.account);
@@ -19,8 +20,26 @@ const Profile = () => {
   const [accountId, setAccountId] = useState(account.id);
   const [accountStatus, setAccountStatus] = useState(account.status);
   const dispatch = useDispatch();
+
+  const [image, setImage] = useState(km1);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!accountId) {
+      toast.error("Không tìm thấy ID tài khoản.");
+      return;
+    }
 
     const account1 = {
       accountId,
@@ -31,11 +50,9 @@ const Profile = () => {
       accountStatus,
     };
     let res = await updateProfile(accountId, account1);
-    console.log("check", res);
     if (res) {
       toast.success("Cập nhật thông tin thành công!");
       dispatch(updateAccount(res.data));
-      console.log(account);
     } else {
       toast.error("aaaa");
     }
@@ -47,11 +64,21 @@ const Profile = () => {
         <h1 className="font-bold text-[35px]">Chỉnh sửa hồ sơ</h1>
       </div>
       <div className="flex items-center justify-center rounded-full relative mt-[15px] ">
-        <img
-          className="rounded-full"
-          src={km1}
-          style={{ maxHeight: "200px", maxWidth: "200px" }}
-        ></img>
+        <label htmlFor="fileInput" className="relative">
+          <img
+            className="rounded-full cursor-pointer"
+            src={image}
+            alt="Profile"
+            style={{ maxHeight: "200px", maxWidth: "200px" }}
+          />
+          <FaCamera className="absolute bottom-1 right-2 translate-y-1/4 bg-transparent p-1 rounded-full text-gray-700 text-[25px]" />
+        </label>
+        <input
+          type="file"
+          id="fileInput"
+          style={{ display: "none" }}
+          onChange={handleImageChange}
+        />
       </div>
       <form
         className="content flex items-center justify-center flex-col space-y-6 md:mt-[20px]"
