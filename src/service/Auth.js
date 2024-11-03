@@ -1,6 +1,6 @@
 import axios from "../utils/axiosCustom";
 
-export const register = (registerObj) => axios.post('auth', registerObj)
+export const register = (registerObj) => axios.post('auth/register', registerObj)
 
 export const login = (username, password) => {
     return axios.post('auth/login', {

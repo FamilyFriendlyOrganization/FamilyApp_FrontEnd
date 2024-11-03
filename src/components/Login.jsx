@@ -6,14 +6,13 @@ import { RxEyeOpen } from "react-icons/rx";
 import { PiEyeClosedLight } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { PiKeyBold } from "react-icons/pi";
-import { FaFacebook } from "react-icons/fa";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FaGithub } from "react-icons/fa";
 import { login } from "../service/Auth";
 import { toast } from "react-toastify";
 import { LuUser2 } from "react-icons/lu";
 import { useDispatch } from "react-redux";
 import { doLogin } from "../redux/action/userAction";
+import Footer from "./Footer";
+import { IoIosReturnLeft } from "react-icons/io";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -43,11 +42,19 @@ const Login = () => {
       <div className="w-full h-full bg-login bg-cover bg-center bg-no-repeat relative">
         <div className="h-30 flex items-center justify-center"></div>
         <form
-          className="flex items-center justify-center main bg-white relative flex-col space-y-3.5 h-fit"
+          className="flex items-center justify-center main bg-white relative flex-col space-y-4 h-fit"
           onSubmit={(e) => handleSubmit(e)}
         >
-          <h2 className="text-pink-600 font-bold text-[40px]">Đăng nhập</h2>
-          <img src={gg} style={{ maxWidth: "173px" }} />
+          <div className="flex items-center md:space-x-[350px] md:mr-[350px]">
+            <IoIosReturnLeft
+              className="text-[40px] cursor-pointer"
+              onClick={() => navigate("/")}
+            />
+            <h2 className="bg-gradient-to-t bg-clip-text text-transparent from-purple-600 to-blue-500 font-bold text-[40px]">
+              Đăng nhập
+            </h2>
+          </div>
+
           <div className="input-group  flex items-center h-[63px] bg-gray-100">
             <span className="p-[10px] h-[100%] flex items-center justify-center ml-10">
               <LuUser2 fontSize="50px" />
@@ -129,18 +136,11 @@ const Login = () => {
             Đăng nhập bằng:{" "}
           </p>
           <div className="flex items-center justify-center space-x-[50px] ">
-            <span onClick={() => navigate("/")} className="cursor-pointer">
-              <FaFacebook fontSize="55px" color="blue" />
-            </span>
-            <span onClick={() => navigate("/")} className="cursor-pointer">
-              <RiTwitterXFill fontSize="55px" />
-            </span>
-            <span onClick={() => navigate("/")} className="cursor-pointer">
-              <FaGithub fontSize="55px" />
-            </span>
+            <img src={gg} style={{ maxWidth: "190px" }} />
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

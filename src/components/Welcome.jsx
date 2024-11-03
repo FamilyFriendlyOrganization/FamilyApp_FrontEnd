@@ -6,6 +6,7 @@ import "./Welcome.scss";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -30,11 +31,12 @@ const Welcome = () => {
               <FaGoogle className="text-green-500 text-[30px] icon" />
               <h2 className="text-40px font-bold">Đăng nhập bằng Google</h2>
             </button>
-            <button className="flex justify-center items-center space-x-3 w-[310px]">
-              <IoPhonePortraitOutline className="text-black text-[25px] icon" />
-              <h2 className="text-40px font-bold">
-                Đăng nhập bằng số điện thoại
-              </h2>
+            <button
+              className="flex justify-center items-center space-x-3 w-[310px]"
+              onClick={() => navigate("/login")}
+            >
+              <FaRegCircleUser className="text-black text-[30px] icon" />
+              <h2 className="text-40px font-bold">Đăng nhập bằng tài khoản</h2>
             </button>
             <button className="flex justify-center items-center space-x-3 w-[310px]">
               <FaFacebook className="text-blue-700 text-[30px]" />

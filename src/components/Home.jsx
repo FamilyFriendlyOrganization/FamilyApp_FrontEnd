@@ -26,8 +26,16 @@ import km7 from "../assets/km7.jpg";
 import km8 from "../assets/km8.jpg";
 import news1 from "../assets/news1.jpg";
 import news2 from "../assets/news2.jpg";
-import news3 from "../assets/news3.jpg";
-import news4 from "../assets/news4.jpg";
+import gd1 from "../assets/gd1.jpg";
+import gd2 from "../assets/gd2.jpg";
+import gd3 from "../assets/gd3.jpg";
+import gd4 from "../assets/gd4.jpg";
+import gd5 from "../assets/gd5.jpg";
+import gd6 from "../assets/gd6.jpg";
+import gd7 from "../assets/gd7.jpg";
+import gd8 from "../assets/gd8.jpg";
+import gd9 from "../assets/gd9.png";
+import gd10 from "../assets/gd10.jpg";
 import { IoNavigateCircleOutline } from "react-icons/io5";
 import Footer from "./Footer";
 
@@ -288,47 +296,81 @@ const Home = () => {
             </div>
           </div>
           <div className="flex items-center space-x-[60px] justify-between md:mt-[40px] mt-[20px] md:mb-[80px]">
-            <div className="flex flex-col items-center">
-              <img src={news3} className="w-[70%]"></img>
-              <p className="text-black font-bold text-[30px]">
-                Thu hẹp khoảng cách thế hệ
-              </p>
-              <p className="text-[25px] text-justify flex">
-                Bằng cách chấp nhận sự khác biệt, quan tâm đến sở thích của
-                con...
-              </p>
-              <span
-                className="flex items-center text-purple-700  cursor-pointer font-bold"
-                onClick={() => navigate("/")}
-              >
-                {" "}
-                <IoNavigateCircleOutline className="text-[40px]" /> Nhấn để xem
-                thêm
-              </span>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src={news4} className="w-[75%]"></img>
-              <p className="text-black font-bold text-[30px]">
-                Hãy lắng nghe tiếng lòng của con trẻ
-              </p>
-              <p className="text-[25px] text-justify flex">
-                Dù bận rộn đến đâu, hãy luôn dành thời gian cho con trẻ...
-              </p>
-              <span
-                className="flex items-center text-purple-700  cursor-pointer font-bold"
-                onClick={() => navigate("/")}
-              >
-                {" "}
-                <IoNavigateCircleOutline className="text-[40px]" /> Nhấn để xem
-                thêm
-              </span>
-            </div>
+            <Carousel
+              swipeable={true}
+              draggable={true}
+              showDots={false}
+              infinite={true}
+              responsive={responsive}
+              containerClass="carousel-container"
+            >
+              <div>
+                <img
+                  src={gd1}
+                  alt="Slide 1"
+                  className="w-full h-[300px] object-cover cursor-pointer"
+                  onClick={() => navigate("/")}
+                />
+              </div>
+              <div>
+                <img
+                  src={gd2}
+                  alt="Slide 2"
+                  className="w-full h-[300px] object-cover cursor-pointer"
+                />
+              </div>
+              <div>
+                <img
+                  src={gd3}
+                  alt="Slide 3"
+                  className="w-full h-[300px] object-cover cursor-pointer"
+                />
+              </div>
+              <div>
+                <img
+                  src={gd4}
+                  alt="Slide 4"
+                  className="w-full h-[300px] object-cover cursor-pointer"
+                  onClick={() => navigate("/")}
+                />
+              </div>
+              <div>
+                <img
+                  src={gd5}
+                  alt="Slide 5"
+                  className="w-full h-[300px] object-cover cursor-pointer"
+                  onClick={() => navigate("/")}
+                />
+              </div>
+              <div>
+                <img
+                  src={gd9}
+                  alt="Slide 6"
+                  className="w-full h-[300px] object-cover cursor-pointer"
+                  onClick={() => navigate("/")}
+                />
+              </div>
+              <div>
+                <img
+                  src={gd7}
+                  alt="Slide 7"
+                  className="w-full h-[300px] object-cover cursor-pointer"
+                  onClick={() => navigate("/")}
+                />
+              </div>
+              <div>
+                <img
+                  src={gd10}
+                  alt="Slide 8"
+                  className="w-full h-[300px] object-cover cursor-pointer"
+                  onClick={() => navigate("/")}
+                />
+              </div>
+            </Carousel>
           </div>
         </div>
       </div>
-      <div className="z-999">
-        <Footer />
-      </div>
+      <Footer />
     </>
   );
 };

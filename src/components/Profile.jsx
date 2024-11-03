@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { PiLessThan } from "react-icons/pi";
 import km1 from "../assets/km1.jpg";
-import { RxEyeOpen } from "react-icons/rx";
-import { PiEyeClosedLight } from "react-icons/pi";
 import "./Profile.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../service/Auth";
 import { toast } from "react-toastify";
 import { updateAccount } from "../redux/action/userAction";
 import { FaCamera } from "react-icons/fa";
+import Footer from "./Footer";
+import { IoIosReturnLeft } from "react-icons/io";
 
 const Profile = () => {
   const account = useSelector((state) => state.user.account);
@@ -16,7 +16,6 @@ const Profile = () => {
   const [password, setPassword] = useState(account.password);
   const [email, setEmail] = useState(account.email);
   const [displayName, setDisplayName] = useState(account.displayName);
-  const [isShowPassWord, setIsShowPassWord] = useState(false);
   const [accountId, setAccountId] = useState(account.id);
   const [accountStatus, setAccountStatus] = useState(account.status);
   const dispatch = useDispatch();
@@ -59,8 +58,8 @@ const Profile = () => {
   };
   return (
     <div className="main md:mt-[20px] mt-[10px]">
-      <div className="flex items-center md:space-x-[380px] md:ml-[200px] ml-[150px] space-x-[70px]">
-        <PiLessThan className="text-[35px] font-bold" />
+      <div className="flex items-center md:space-x-[380px] md:ml-[200px] ml-[100px] space-x-[100px]">
+        <IoIosReturnLeft className="text-[35px] font-bold" />
         <h1 className="font-bold text-[35px]">Chỉnh sửa hồ sơ</h1>
       </div>
       <div className="flex items-center justify-center rounded-full relative mt-[15px] ">
@@ -71,7 +70,7 @@ const Profile = () => {
             alt="Profile"
             style={{ maxHeight: "200px", maxWidth: "200px" }}
           />
-          <FaCamera className="absolute bottom-1 right-2 translate-y-1/4 bg-transparent p-1 rounded-full text-gray-700 text-[25px]" />
+          <FaCamera className="absolute bottom-2 right-7 translate-y-1/4 bg-transparent p-1 rounded-full  text-[25px]" />
         </label>
         <input
           type="file"
@@ -81,7 +80,7 @@ const Profile = () => {
         />
       </div>
       <form
-        className="content flex items-center justify-center flex-col space-y-6 md:mt-[20px]"
+        className="content flex items-center justify-center flex-col space-y-6 md:mt-[20px] mt-[20px]"
         onSubmit={(e) => handleSubmit(e)}
       >
         <div className="relative border-2 border-black p-3 w-[400px]">
@@ -92,47 +91,17 @@ const Profile = () => {
             Tên đăng nhập
           </label>
           <input
+            disabled
             id="username"
             type="text"
             className="border-none focus:outline-none w-full pt-2"
             placeholder="aaaa"
             name="username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            // onChange={(e) => setUsername(e.target.value)}
           ></input>
         </div>
-        <div className="relative border-2 border-black p-3 w-[400px]">
-          <label
-            className="text-purple-600  font-bold absolute -top-4 px-1 left-3 bg-white"
-            htmlFor="password"
-          >
-            Mật khẩu
-          </label>
-          <input
-            id="password"
-            type={isShowPassWord ? "text" : "password"}
-            className="border-none focus:outline-none w-full pt-2"
-            placeholder="aaaa"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-          {isShowPassWord ? (
-            <span
-              className="absolute right-5 top-5"
-              onClick={() => setIsShowPassWord(false)}
-            >
-              <RxEyeOpen />
-            </span>
-          ) : (
-            <span
-              className="absolute right-5 top-5"
-              onClick={() => setIsShowPassWord(true)}
-            >
-              <PiEyeClosedLight />
-            </span>
-          )}
-        </div>
+
         <div className="relative border-2 border-black p-3 w-[400px]">
           <label
             className="text-purple-600  font-bold absolute -top-4 px-1 left-3 bg-white"
@@ -168,11 +137,12 @@ const Profile = () => {
           ></input>
         </div>
         <div className="flex items-center justify-center">
-          <button className="btn bg-purple-800 text-white font-bold">
+          <button className="btn bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold mt-2">
             Lưu thay đổi
           </button>
         </div>
       </form>
+      <Footer />
     </div>
   );
 };

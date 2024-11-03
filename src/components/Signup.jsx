@@ -7,14 +7,12 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { RxEyeOpen } from "react-icons/rx";
 import { PiEyeClosedLight } from "react-icons/pi";
-import { FaFacebook } from "react-icons/fa";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FaGithub } from "react-icons/fa";
 import Icon2 from "../assets/icon4.png";
-import { PiImagesSquareBold } from "react-icons/pi";
 import { register } from "../service/Auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Footer from "./Footer";
+import { IoIosReturnLeft } from "react-icons/io";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -63,16 +61,18 @@ const Signup = () => {
           </div>
         </div>
         <form
-          className="bg-white flex flex-col space-y-4 items-center relative main md:mt-[-44px] mt-[-40px]"
+          className="bg-white flex flex-col space-y-6 items-center relative main md:mt-[-38px] mt-[-40px]"
           onSubmit={(e) => handleSignup(e)}
         >
-          <span
-            className="text-pink-600 text-[18px] font-bold md:mr-[1000px] ml-0 cursor-pointer"
-            onClick={() => navigate("/login")}
-          >
-            Đã có tài khoản, đăng nhập ngay nào!
-          </span>
-          <h1 className="text-purple-600 text-[40px] font-bold ">Đăng ký</h1>
+          <div className="flex items-center justify-between md:space-x-[200px] md:mr-[220px] space-x-[50px] mr-[70px]">
+            <IoIosReturnLeft
+              className="text-[40px] cursor-pointer "
+              onClick={() => navigate("/login")}
+            />
+            <h1 className="bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent text-[50px] font-bold">
+              Đăng ký
+            </h1>
+          </div>
           <div className="space-x-5 flex items-center w-fit bg-gray-100 inputF">
             <span className="p-[10px] flex justify-center">
               <LuUser2 className="text-[30px]" />
@@ -136,35 +136,13 @@ const Signup = () => {
               onChange={(e) => setDisplayName(e.target.value)}
             />
           </div>
-          <div className="flex items-center right-[80px] w-[270px] text-[30px]">
-            <label
-              className="label-upload flex items-center space-x-10"
-              htmlFor="labelUpload"
-            >
-              <PiImagesSquareBold className="text-purple-600 font-bold" />
-              <span className="text-purple-600 text-[20px] font-bold">
-                Tải ảnh ngay!
-              </span>
-            </label>
-            <input type="file" id="labelUpload" hidden />
-          </div>
           <div className="flex items-center justify-center">
-            <button className="btn bg-purple-600 text-white font-bold">
+            <button className="btn bg-gradient-to-r from-purple-500 to-purple-800 text-white font-bold mb-20">
               Tiếp tục
             </button>
           </div>
-          <div className="flex items-center justify-center space-x-[50px]">
-            <span onClick={() => navigate("/")} className="cursor-pointer">
-              <FaFacebook fontSize="42px" color="blue" />
-            </span>
-            <span onClick={() => navigate("/")} className="cursor-pointer">
-              <RiTwitterXFill fontSize="42px" />
-            </span>
-            <span onClick={() => navigate("/")} className="cursor-pointer">
-              <FaGithub fontSize="42px" />
-            </span>
-          </div>
         </form>
+        <Footer />
       </div>
     </>
   );

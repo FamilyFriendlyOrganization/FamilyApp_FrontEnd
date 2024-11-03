@@ -5,4 +5,24 @@
     right: 0; 
     padding: 1px; 
     z-index: 999;
+
+    .icon-container{
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+
+        .icon{
+            margin-top: 5px;
+            color: black;
+            font-size: 45px;
+            font-weight: 700;
+        }
+        
+    }
+    .icon-container.active {
+        .icon {
+          color: rgb(183, 0, 255);
+        }
+      }
+    
 }
