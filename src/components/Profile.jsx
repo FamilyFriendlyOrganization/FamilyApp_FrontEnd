@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { PiLessThan } from "react-icons/pi";
 import km1 from "../assets/km1.jpg";
 import "./Profile.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,8 +8,10 @@ import { updateAccount } from "../redux/action/userAction";
 import { FaCamera } from "react-icons/fa";
 import Footer from "./Footer";
 import { IoIosReturnLeft } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const account = useSelector((state) => state.user.account);
   const [username, setUsername] = useState(account.username);
   const [password, setPassword] = useState(account.password);
@@ -59,7 +60,10 @@ const Profile = () => {
   return (
     <div className="main md:mt-[20px] mt-[10px]">
       <div className="flex items-center md:space-x-[380px] md:ml-[200px] ml-[100px] space-x-[100px]">
-        <IoIosReturnLeft className="text-[35px] font-bold" />
+        <IoIosReturnLeft
+          className="text-[35px] font-bold cursor-pointer"
+          onClick={() => navigate("/home")}
+        />
         <h1 className="font-bold text-[35px]">Chỉnh sửa hồ sơ</h1>
       </div>
       <div className="flex items-center justify-center rounded-full relative mt-[15px] ">
@@ -98,7 +102,6 @@ const Profile = () => {
             placeholder="aaaa"
             name="username"
             value={username}
-            // onChange={(e) => setUsername(e.target.value)}
           ></input>
         </div>
 

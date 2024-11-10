@@ -1,6 +1,9 @@
 import "./App.css";
+import Choose from "./components/Choose";
+import Eat from "./components/Eat";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import MoneyManagement from "./components/MoneyManagement";
 import Profile from "./components/Profile";
 import Signup from "./components/Signup";
 import Welcome from "./components/Welcome";
@@ -17,6 +20,9 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/choose" element={<Choose />}></Route>
+          <Route path="/money" element={<MoneyManagement />}></Route>
+          <Route path="/eat" element={<Eat />}></Route>
         </Routes>
       </BrowserRouter>
 

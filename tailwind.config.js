@@ -10,7 +10,8 @@ export default {
         'signup':'url(/signup1.jpg)',
         'login':'url(/login1.jpg)',
         'welcome':'url(/welcome.jpg)',
-        'home':'url(/hp.jpg)'
+        'home':'url(/hp.jpg)',
+        'choose':'url(/ch5.jpg)'
       }
     },
   },

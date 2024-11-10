@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Footer.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { GoPlusCircle } from "react-icons/go";
 import { TbMoneybag } from "react-icons/tb";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -10,6 +10,18 @@ import { MdOutlineEditCalendar } from "react-icons/md";
 const Footer = () => {
   const navigate = useNavigate();
   const [activeIcon, setActiveIcon] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const pathToIcon = {
+      "/home": "home",
+      "/calendar": "calendar",
+      "/add": "add",
+      "/money": "money",
+      "/profile": "profile",
+    };
+    setActiveIcon(pathToIcon[location.pathname]);
+  }, [location]);
 
   const handleIconClick = (iconName, path) => {
     setActiveIcon(iconName);
@@ -27,25 +39,25 @@ const Footer = () => {
         className={`icon-container ${
           activeIcon === "calendar" ? "active" : ""
         }`}
-        onClick={() => handleIconClick("calendar", "/home")}
+        onClick={() => handleIconClick("calendar", "/")}
       >
         <MdOutlineEditCalendar className="icon" />
       </div>
       <div
         className={`icon-container ${activeIcon === "add" ? "active" : ""}`}
-        onClick={() => handleIconClick("add", "/home")}
+        onClick={() => handleIconClick("add", "/")}
       >
         <GoPlusCircle className="icon" />
       </div>
       <div
         className={`icon-container ${activeIcon === "money" ? "active" : ""}`}
-        onClick={() => handleIconClick("money", "/home")}
+        onClick={() => handleIconClick("money", "/money")}
       >
         <TbMoneybag className="icon" />
       </div>
       <div
         className={`icon-container ${activeIcon === "profile" ? "active" : ""}`}
-        onClick={() => handleIconClick("profile", "/home")}
+        onClick={() => handleIconClick("profile", "/profile")}
       >
         <FaRegCircleUser className="icon md:mr-[200px]" />
       </div>
