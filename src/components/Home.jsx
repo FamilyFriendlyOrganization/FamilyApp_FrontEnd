@@ -38,6 +38,8 @@ import gd9 from "../assets/gd9.png";
 import gd10 from "../assets/gd10.jpg";
 import { IoNavigateCircleOutline } from "react-icons/io5";
 import Footer from "./Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { doLogout } from "../redux/action/userAction";
 
 const responsive = {
   superLargeDesktop: {
@@ -59,24 +61,34 @@ const responsive = {
 };
 
 const Home = () => {
+  const isAuthen = useSelector((state) => state.user.isAuthenticated);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const account = useSelector((state) => state.user.account);
 
+  function handleLogout() {
+    dispatch(doLogout());
+    navigate("/login");
+  }
   return (
     <>
       <div className="header bg-home bg-cover bg-no-repeat bg-center w-full h-[120px] space-y-2 z-10">
-        <div className="ml-[648px] md:ml-[1385px] ">
-          <ReactCountryFlag
-            countryCode="VN"
-            svg
-            style={{
-              width: "1.5em",
-              height: "1.5em",
-              borderRadius: "9999px",
-
-              fontSize: "25px",
-              cursor: "pointer",
-            }}
-          />
+        <div className="ml-[648px] md:ml-[1350px] ">
+          {isAuthen === true ? (
+            <p
+              className="text-white md:text-[20px] text-[25px] cursor-pointer "
+              onClick={() => handleLogout()}
+            >
+              Đăng xuất
+            </p>
+          ) : (
+            <p
+              className="text-white md:text-[20px] text-[25px] cursor-pointer "
+              onClick={() => navigate("/login")}
+            >
+              Đăng nhập
+            </p>
+          )}
         </div>
         <div className="flex items-center text-white justify-between ml-[50px] md:ml-[70px] md:mr-[50px] mr-[20px]">
           <span
