@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.scss";
-import ReactCountryFlag from "react-country-flag";
+import { FaUserPlus } from "react-icons/fa6";
 import { RiHome2Line } from "react-icons/ri";
 import { RiNotification2Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
@@ -72,25 +72,25 @@ const Home = () => {
   }
   return (
     <>
-      <div className="header bg-home bg-cover bg-no-repeat bg-center w-full h-[120px] space-y-2 z-10">
-        <div className="ml-[648px] md:ml-[1350px] ">
+      <div className="header bg-home bg-cover bg-no-repeat bg-center w-full h-[120px] z-10	">
+        <div className="flex justify-end md:mr-[45px] mr-[20px]">
           {isAuthen === true ? (
             <p
-              className="text-white md:text-[20px] text-[25px] cursor-pointer "
+              className="text-white md:text-[25px] text-[25px] cursor-pointer py-1.5"
               onClick={() => handleLogout()}
             >
               Đăng xuất
             </p>
           ) : (
             <p
-              className="text-white md:text-[20px] text-[25px] cursor-pointer "
+              className="text-white md:text-[25px] text-[25px] cursor-pointer py-1.5"
               onClick={() => navigate("/login")}
             >
               Đăng nhập
             </p>
           )}
         </div>
-        <div className="flex items-center text-white justify-between ml-[50px] md:ml-[70px] md:mr-[50px] mr-[20px]">
+        <div className="flex items-center text-white justify-between ml-[50px] md:ml-[70px] md:mr-[50px] mr-[20px] tp[] ">
           <span
             onClick={() => navigate("/")}
             className="space-x-3 flex items-center cursor-pointer"
@@ -113,14 +113,14 @@ const Home = () => {
         </div>
       </div>
       <div className="main relative z-10">
-        <div className="flex items-center justify-center space-x-5 findBtn w-fit bg-gray-100 mt-[-80px] mx-auto">
+        <div className="flex items-center findBtn w-fit bg-gray-100 mt-[-80px] mx-auto gap-x-20 my-auto">
           <input
             type="text"
             name="username"
             placeholder="Tìm kiếm..."
             className="bg-transparent focus:outline-none"
           />
-          <span className="p-[10px] flex justify-center">
+          <span className="flex">
             <GoSearch
               className="text-[30px] text-pink-600 cursor-pointer font-bold"
               onClick={() => navigate("/home")}
@@ -132,56 +132,56 @@ const Home = () => {
             <div className="flex flex-col items-center space-y-2">
               <TbMoneybag
                 className="text-red-600 text-[50px] cursor-pointer"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/money")}
               />
               <p className="text-gray-500 text-[20px]">Quản lý chi tiêu</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
               <FaRegCalendarAlt
                 className="text-blue-600 text-[50px] cursor-pointer"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/calendar")}
               />
               <p className="text-gray-500 text-[20px]">Đặt lịch</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
               <GiReceiveMoney
                 className="text-green-600 text-[50px] cursor-pointer"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/receive")}
               />
               <p className="text-gray-500 text-[20px]">Nhận tiền</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
               <FcMoneyTransfer
                 className="text-[50px] cursor-pointer"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/transfer")}
               />
               <p className="text-gray-500 text-[20px]">Chuyển tiền</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
-              <TbReceipt2
-                className="text-cyan-400 text-[50px] cursor-pointer"
-                onClick={() => navigate("/")}
+              <FaUserPlus
+                className="text-blue-600 text-[50px] cursor-pointer"
+                onClick={() => navigate("/add-family")}
               />
-              <p className="text-gray-500 text-[20px]">Thanh toán hóa đơn</p>
+              <p className="text-gray-500 text-[20px]">Thêm thành viên</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
               <FiGift
                 className="text-purple-600 text-[50px] cursor-pointer"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/give-gift")}
               />
               <p className="text-gray-500 text-[20px]">Tặng quà</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
               <MdFamilyRestroom
                 className="text-blue-600 text-[50px] cursor-pointer"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/manage-family")}
               />
               <p className="text-gray-500 text-[20px]">Gia đình</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
               <HiOutlineSquaresPlus
                 className="text-[50px] cursor-pointer"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/home")}
               />
               <p className="text-gray-500 text-[20px]">Các chức năng khác</p>
             </div>

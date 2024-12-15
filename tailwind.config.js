@@ -11,7 +11,8 @@ export default {
         'login':'url(/login1.jpg)',
         'welcome':'url(/welcome.jpg)',
         'home':'url(/hp.jpg)',
-        'choose':'url(/ch5.jpg)'
+        'choose':'url(/ch5.jpg)',
+        'gift': 'url(/gift.jpg)'
       }
     },
   },

@@ -3,11 +3,11 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosSearch } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
-import { CiBank } from "react-icons/ci";
-import { TbTransfer } from "react-icons/tb";
-import { LuSalad } from "react-icons/lu";
-import { HiOutlineCash } from "react-icons/hi";
-import { IoIosArrowDown } from "react-icons/io";
+import km1 from "../assets/km1.jpg";
+import avatar1 from "../assets/avatar1.jpg";
+import avatar3 from "../assets/avatar3.jpg";
+import avatar4 from "../assets/avatar4.jpg";
+import avatar5 from "../assets/image5.jpg";
 import {
   BarChart,
   CartesianGrid,
@@ -19,7 +19,6 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
-import "./Eat.scss";
 import Footer from "./Footer";
 
 const data = [
@@ -50,7 +49,7 @@ const CustomLegend = () => {
         style={{
           width: "20px",
           height: "20px",
-          backgroundColor: "lightpink",
+          backgroundColor: "blue",
           marginRight: "10px",
         }}
       ></div>
@@ -62,14 +61,29 @@ const CustomLegend = () => {
 };
 
 const dataF = [
-  { name: "Nguyễn Thùy Vân", money: "80,000 ", type: 1 },
-  { name: "Đặng Thị Trúc", money: "90,000 ", type: 2 },
-  { name: "Phương Như Sinh", money: "180,000 ", type: 3 },
-  { name: "Nguyễn Minh Thư", money: "100,000 ", type: 1 },
+  {
+    name: "Nguyễn Đình Duy",
+    role: "cha",
+    time: "50p trước",
+    image: avatar4,
+  },
+  { name: "Đoàn Như Sinh", role: "mẹ", time: "1h trước", image: avatar1 },
+  {
+    name: "Nguyễn Trường An",
+    role: "con",
+    time: "3p trước",
+    image: avatar5,
+  },
+  {
+    name: "Nguyễn Thị Tố Trân",
+    role: "con",
+    time: "12p trước",
+    image: avatar3,
+  },
 ];
-
-const Eat = () => {
+const ManageFamily = () => {
   const navigate = useNavigate();
+
   const [isWeekSelected, setIsWeekSelected] = useState(false);
 
   const getCurrentDay = () => {
@@ -93,24 +107,13 @@ const Eat = () => {
     return date.getMonth() + 1;
   };
 
-  const getIconByType = (type) => {
-    switch (type) {
-      case 1:
-        return <CiBank className="text-[100px] text-blue-600 " />;
-      case 2:
-        return <TbTransfer className="text-[100px] text-red-400 " />;
-      case 3:
-        return <HiOutlineCash className="text-[100px] text-purple-500 " />;
-    }
-  };
-
   const [weekRange, setWeekRange] = useState(getCurrentWeekRange());
   const [month, setMonth] = useState(getCurrentMonth());
   const [day, setDay] = useState(getCurrentDay());
 
   return (
     <>
-      <div className="flex items-center justify-between bg-purple-800 h-[75px] px-[20px] md:px-[100px] md:mb-[-50px] mb-[-70px]">
+      <div className="flex items-center justify-between bg-purple-800 h-[75px] px-[20px] md:px-[100px]">
         <div className="flex items-center space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
             <IoIosArrowBack
@@ -118,25 +121,78 @@ const Eat = () => {
               onClick={() => navigate("/home")}
             />
           </div>
-          <h1 className="text-white text-[25px] md:text-[35px]">Ăn uống</h1>
+          <h1 className="text-white text-[25px] md:text-[35px]">
+            Quản lý gia đình
+          </h1>
         </div>
 
         <div className="flex items-center space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch
-              className="text-white text-[30px] md:text-[45px] cursor-pointer"
-              onClick={() => navigate("/home")}
-            />
+            <IoIosSearch className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
           <div className="rounded-full bg-black flex items-center p-1">
-            <RxCross1
-              className="text-white text-[30px] md:text-[45px] cursor-pointer"
-              onClick={() => navigate("/home")}
-            />
+            <RxCross1 className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
         </div>
       </div>
-      <div className="main">
+      <div className="main mb-[100px] mt-[30px]">
+        <p className="md:text-[40px] text-[25px] font-bold md:ml-[65px]">
+          Thời gian biểu của các thành viên
+        </p>
+        <div className="border-gray-400 border-[1px] w-full max-w-[1350px] mx-auto mt-[30px] md:p-[30px] p-[10px] md:mt-[30px] ">
+          <p className="md:text-[40px] text-[25px] font-bold text-red-500">
+            Gia đình Batman
+          </p>
+          <div className="border-[1px] border-gray-400 md:mt-[20px] md:mb-[20px]"></div>
+          <div className="space-y-[30px] ml-[50px]">
+            {dataF.map((member, index) => (
+              <div key={index} className="flex items-center">
+                <img
+                  className="rounded-full cursor-pointer"
+                  src={member.image}
+                  style={{ maxHeight: "150px", maxWidth: "150px" }}
+                />
+                <div className="grid grid-cols-2 gap-y-[25px] gap-x-[400px] md:ml-[30px]">
+                  <div>
+                    <p className="md:text-[20px] text-[25px] font-bold text-gray-400">
+                      Họ và Tên
+                    </p>
+                    <p className="md:text-[20px] text-[25px] font-bold">
+                      {member.name}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="md:text-[20px] text-[25px] font-bold text-gray-400">
+                      Thời gian biểu
+                    </p>
+                    <p className="md:text-[20px] text-[25px] font-bold">
+                      Nhấn để xem ngay!
+                    </p>
+                  </div>
+                  <div>
+                    <p className="md:text-[20px] text-[25px] font-bold text-gray-400">
+                      Hoạt động gần nhất
+                    </p>
+                    <p className="md:text-[20px] text-[25px] font-bold">
+                      {member.time}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="md:text-[20px] text-[25px] font-bold text-gray-400">
+                      Tặng quà
+                    </p>
+                    <p className="md:text-[20px] text-[25px] font-bold">
+                      Trao gửi yêu thương!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="md:text-[40px] text-[25px] font-bold md:ml-[65px] md:mt-[30px] md:mb-[30px]">
+          Thống kê chi tiêu
+        </p>
         <div className="flex flex-col border-[1px] border-gray-400 w-full max-w-[1350px] ml-auto mr-auto rounded-[30px] space-y-20">
           <div className="flex justify-start space-x-5 md:ml-[170px] ml-[50px] py-5">
             <div
@@ -170,7 +226,7 @@ const Eat = () => {
                       <Cell
                         key={`cell-${index}`}
                         fill={
-                          parseInt(entry.day) === day ? "#C71585" : "#FFB6C1"
+                          parseInt(entry.day) === day ? "blue" : "lightblue"
                         }
                       />
                     ))}
@@ -190,9 +246,7 @@ const Eat = () => {
                       <Cell
                         key={`cell-${index}`}
                         fill={
-                          parseInt(entry.month) === month
-                            ? "#C71585"
-                            : "#FFB6C1"
+                          parseInt(entry.month) === month ? "blue" : "lightblue"
                         }
                       />
                     ))}
@@ -202,56 +256,10 @@ const Eat = () => {
             )}
           </div>
         </div>
-        {isWeekSelected === false ? (
-          <p className="md:text-[40px] text-[30px] text-black font-bold md:px-[65px] px-0 md:py-[20px] py-[10px]">
-            Giao dịch tháng {month}
-          </p>
-        ) : (
-          <p className="md:text-[40px] text-[30px] text-black font-bold md:px-[65px] px-0 md:py-[20px] py-[10px]">
-            Giao dịch tuần {weekRange.startDay} - {weekRange.endDay}
-          </p>
-        )}
-        <div className="flex flex-col border-gray-400 border-[1px] rounded-[30px] w-full max-w-[1350px] ml-auto mr-auto space-y-8 mb-[70px]">
-          <div className="bg-blue-200 day w-full flex items-center">
-            <p className="text-[35px] text-black text-start md:ml-[70px] ml-[10px]">
-              30/10/2024
-            </p>
-          </div>
-          {dataF.map((item, index) => (
-            <div
-              key={index}
-              className="flex  items-center w-[1200px] ml-auto mr-auto border-[1px] border-gray-400 md:px-20 px-4 md:space-x-[70px] space-x-[20px]"
-            >
-              <div className="w-[100px] rounded-full border-gray-400 border-[1px] flex items-center justify-center my-[5px]">
-                {getIconByType(item.type)}
-              </div>
-              <div className="flex flex-col md:mt-[-10px] space-y-[10px]">
-                <p className="md:text-[35px] text-[30px] font-lightbold text-black">
-                  Chuyển tiền đến <i>{item.name}</i>
-                </p>
-                <div className="flex md:space-x-[500px] space-x-[100px] items-center">
-                  <div className=" p-2 rounded-[30px] border-[1px] border-black bg-gray-200 flex items-center space-x-4 cursor-pointer">
-                    <LuSalad className="text-[30px] text-green-500" />
-                    <p className="text-black font-semibold text-[20px]">
-                      Ăn uống
-                    </p>
-                    <IoIosArrowDown className="text-[30px] text-black" />
-                  </div>
-                  <p className="text-black font-bold md:text-[25px] text-[25px]">
-                    -{item.money} VNĐ
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-          <p className="text-[35px] text-pink-600 font-bold text-center cursor-pointer">
-            Xem thêm
-          </p>
-        </div>
       </div>
       <Footer />
     </>
   );
 };
 
-export default Eat;
+export default ManageFamily;
