@@ -8,8 +8,9 @@ const INIT_STATE = {
         email:'',
         displayName:'',
         id: '',
-        status:''
+        status:'',  
     },
+    familyId: '',
     isAuthenticated : false
 }
 
@@ -24,10 +25,17 @@ const userReducer = (state = INIT_STATE, action) =>{
                     email: action.payload.email,
                     displayName: action.payload.displayName,
                     id: action.payload.accountId,
-                    status: action.payload.accountStatus
+                    status: action.payload.accountStatus,
                 },
-                isAuthenticated : true
+                familyId: '',
+                isAuthenticated : true,  
             };
+            case "CHOOSE_FAMILY":
+                return {
+                    ...state,
+                    familyId: action.payload 
+                };
+            
         case "UPDATE_ACCOUNT":
             return {
                 ...state,
@@ -42,7 +50,8 @@ const userReducer = (state = INIT_STATE, action) =>{
                     email: '',
                     displayName: '',
                     id: '',
-                    status: ''
+                    status: '',
+                    familyId: ''
                 },
                 isAuthenticated:false
             }

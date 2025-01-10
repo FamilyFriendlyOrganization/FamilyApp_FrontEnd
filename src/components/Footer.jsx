@@ -39,15 +39,9 @@ const Footer = () => {
         className={`icon-container ${
           activeIcon === "calendar" ? "active" : ""
         }`}
-        onClick={() => handleIconClick("calendar", "/")}
+        onClick={() => handleIconClick("calendar", "/calendar")}
       >
         <MdOutlineEditCalendar className="icon" />
-      </div>
-      <div
-        className={`icon-container ${activeIcon === "add" ? "active" : ""}`}
-        onClick={() => handleIconClick("add", "/")}
-      >
-        <GoPlusCircle className="icon" />
       </div>
       <div
         className={`icon-container ${activeIcon === "money" ? "active" : ""}`}

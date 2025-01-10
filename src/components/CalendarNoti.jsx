@@ -6,12 +6,24 @@ import Footer from "./Footer";
 import { FaBars } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
+import { BiSolidPlusCircle } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const dataW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const CalendarNoti = () => {
-  const [month, setMonth] = useState(9);
-  const [year, setYear] = useState(2024);
+  const navigate = useNavigate();
+  const getCurrentMonth = () => {
+    const date = new Date();
+    return date.getMonth() + 1;
+  };
+
+  const getCurrentYear = () => {
+    const year = new Date();
+    return year.getFullYear();
+  };
+  const [month, setMonth] = useState(getCurrentMonth());
+  const [year, setYear] = useState(getCurrentYear());
 
   const generateCalendar = (month, year) => {
     const days = [];
@@ -57,11 +69,15 @@ const CalendarNoti = () => {
     setShowModalCreateEvent(true);
     setDataD(dayInfo);
   };
+
   return (
     <>
       <div className="flex items-center justify-between bg-purple-800 h-[75px] px-[20px] md:px-[100px]">
         <div className="flex items-center space-x-10">
-          <div className="rounded-full bg-black flex items-center p-1">
+          <div
+            className="rounded-full bg-black flex items-center p-1"
+            onClick={() => navigate("/home")}
+          >
             <IoIosArrowBack className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
           <h1 className="text-white text-[25px] md:text-[35px]">Đặt lịch</h1>
@@ -69,25 +85,23 @@ const CalendarNoti = () => {
 
         <div className="flex items-center space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch className="text-white text-[30px] md:text-[45px] cursor-pointer" />
-          </div>
-          <div className="rounded-full bg-black flex items-center p-1">
             <RxCross1 className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
         </div>
       </div>
       <div className="main space-y-[50px] mb-[100px]">
         <div className="mt-[-80px] flex items-center justify-center gap-x-[200px]">
-          <FaBars className="text-[30px]" />
+          {/* <FaBars className="text-[30px]" /> */}
           <p className="font-bold text-black md:text-[50px] text-[20px]">
-            Tháng {month + 1} {year}
+            Tháng {month} {year}
           </p>
+
           <div className="flex items-center gap-x-[50px] cursor-pointer">
             <FaArrowLeft
               className="text-[40px]"
               onClick={() => {
-                if (month === 0) {
-                  setMonth(11);
+                if (month - 1 < 1) {
+                  setMonth(12);
                   setYear(year - 1);
                 } else {
                   setMonth(month - 1);
@@ -95,15 +109,33 @@ const CalendarNoti = () => {
               }}
             />
             <FaArrowRight
-              className="text-[40px]"
+              className={`text-[40px] cursor-pointer flex-shrink-0 ${
+                month === new Date().getMonth() + 1 &&
+                year === new Date().getFullYear()
+                  ? "text-gray-400 cursor-not-allowed"
+                  : ""
+              }`}
               onClick={() => {
-                if (month === 11) {
-                  setMonth(0);
-                  setYear(year + 1);
-                } else {
-                  setMonth(month + 1);
+                if (
+                  !(
+                    month === new Date().getMonth() + 1 &&
+                    year === new Date().getFullYear()
+                  )
+                ) {
+                  if (month + 1 > 12) {
+                    setYear(year + 1);
+                    setMonth(1);
+                  } else {
+                    setMonth(month + 1);
+                  }
                 }
               }}
+            />
+          </div>
+          <div className="bg-blue-600 rounded-[10px] md:px-2   px-5 md:py-2 py-2 text-white md:w-[100px] flex items-center  justify-center md:space-x-6 space-x-4">
+            <BiSolidPlusCircle
+              className="text-white text-[35px] cursor-pointer"
+              onClick={() => navigate("/create-note")}
             />
           </div>
         </div>

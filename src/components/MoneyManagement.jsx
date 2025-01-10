@@ -14,8 +14,11 @@ import { HiArrowRightOnRectangle } from "react-icons/hi2";
 import "./MM.scss";
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 import { SlNotebook } from "react-icons/sl";
+import { useSelector } from "react-redux";
 
 const MoneyManagement = () => {
+  const account = useSelector((state) => state.user.account);
+  const familyId = account.familyId;
   const navigate = useNavigate();
   const [isShowMoney, setIsShowMoney] = useState(true);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -60,7 +63,7 @@ const MoneyManagement = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between bg-purple-800 h-[75px] px-[20px] md:px-[150px] ">
+      <div className="flex items-center justify-between bg-purple-800 h-[75px] px-[20px] md:px-[100px] ">
         <div className="flex items-center space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
             <IoIosArrowBack
@@ -74,12 +77,6 @@ const MoneyManagement = () => {
         </div>
 
         <div className="flex items-center space-x-10">
-          <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch
-              className="text-white text-[30px] md:text-[45px] cursor-pointer"
-              onClick={() => navigate("/home")}
-            />
-          </div>
           <div className="rounded-full bg-black flex items-center p-1">
             <RxCross1
               className="text-white text-[30px] md:text-[45px] cursor-pointer"
@@ -125,14 +122,6 @@ const MoneyManagement = () => {
                 : "999,999,999 VNĐ".replace(/./g, "*")}
             </span>
           </div>
-          <div className="relative group">
-            <p className="text-[35px] text-purple-700 font-bold cursor-pointer">
-              Xem chi tiết
-            </p>
-            <div className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-sm rounded-md p-2">
-              Chi tiết tài khoản của bạn
-            </div>
-          </div>
         </div>
       </div>
       <div className="flex flex-col rounded-[30px] border-gray-500 border-[1px] mt-[50px] w-full max-w-[1350px] mx-auto main">
@@ -155,13 +144,25 @@ const MoneyManagement = () => {
             </p>
           </div>
           <IoIosArrowForward
-            className="text-[40px] cursor-pointer flex-shrink-0"
+            className={`text-[40px] cursor-pointer flex-shrink-0 ${
+              month === new Date().getMonth() + 1 &&
+              year === new Date().getFullYear()
+                ? "text-gray-400 cursor-not-allowed"
+                : ""
+            }`}
             onClick={() => {
-              if (month + 1 > 12) {
-                setYear(year + 1);
-                setMonth(1);
-              } else {
-                setMonth(month + 1);
+              if (
+                !(
+                  month === new Date().getMonth() + 1 &&
+                  year === new Date().getFullYear()
+                )
+              ) {
+                if (month + 1 > 12) {
+                  setYear(year + 1);
+                  setMonth(1);
+                } else {
+                  setMonth(month + 1);
+                }
               }
             }}
           />
@@ -196,7 +197,7 @@ const MoneyManagement = () => {
               </p>
             </div>
             <p className="text-black font-bold text-[20px] md:text-[30px]">
-              5.500,000 VNĐ
+              5,500,000 VNĐ
             </p>
           </div>
         </div>
@@ -204,7 +205,9 @@ const MoneyManagement = () => {
           <p className="text-gray-500 md:text-[30px] text-[20px]">
             Thu - Chi =
           </p>
-          <p className="text-purple-600 md:text-[30px] text-[20px] ml-5">AAA</p>
+          <p className="text-purple-600 md:text-[30px] text-[20px] ml-5">
+            -500,000 VNĐ
+          </p>
         </div>
         <div className="flex flex-col items-center justify-center mb-12">
           <PieChart width={700} height={600}>
@@ -254,8 +257,11 @@ const MoneyManagement = () => {
                     onClick={() => {
                       if (item.name === "Ăn uống") {
                         navigate("/eat");
+                      }
+                      if (item.name === "Mua sắm") {
+                        navigate("/shopping");
                       } else {
-                        navigate("/home");
+                        navigate("/moving");
                       }
                     }}
                   >
@@ -273,13 +279,6 @@ const MoneyManagement = () => {
                 ))}
           </div>
         </div>
-      </div>
-      <div
-        className="flex items-center justify-center space-x-5 text-blue-600 py-10 mb-10 font-bold cursor-pointer"
-        onClick={() => navigate("/")}
-      >
-        <SlNotebook className="text-[40px]" />
-        <p className="text-[40px] ">Xem ngay lịch sử giao dịch!</p>
       </div>
       <Footer />
     </>

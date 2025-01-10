@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosSearch } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
@@ -22,6 +23,9 @@ import avatar1 from "../assets/avatar1.jpg";
 import avatar3 from "../assets/avatar3.jpg";
 import avatar4 from "../assets/avatar4.jpg";
 import avatar5 from "../assets/image5.jpg";
+import { useSelector } from "react-redux";
+import { getFamilyById } from "../service/Service";
+import AddInviteCode from "./AddInviteCode";
 
 const responsive = {
   superLargeDesktop: {
@@ -70,11 +74,33 @@ const dataF = [
 ];
 
 const AddFamily = () => {
+  const account = useSelector((state) => state.user);
+  const familyId = account.familyId;
+  const [familyName, setFamilyName] = useState("");
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const fetchData = async () => {
+    let res = await getFamilyById(familyId);
+    if (res && res.data) {
+      setFamilyName(res.data.family.familyName);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+  };
+
+  const handleCreateCode = () => {
+    setIsOpenModal(true);
+  };
+
+  const handleClose = () => {
+    setIsOpenModal(false);
   };
   return (
     <>
@@ -92,12 +118,6 @@ const AddFamily = () => {
         </div>
         <div className="flex items-center space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch
-              className="text-white text-[30px] md:text-[45px] cursor-pointer"
-              onClick={() => navigate("/home")}
-            />
-          </div>
-          <div className="rounded-full bg-black flex items-center p-1">
             <RxCross1
               className="text-white text-[30px] md:text-[45px] cursor-pointer"
               onClick={() => navigate("/home")}
@@ -107,30 +127,22 @@ const AddFamily = () => {
       </div>
       <div className="main">
         <div className="flex items-center md:px-[100px] justify-between mb-10 ">
-          <div className="rounded-full bg-gray-300 flex items-center p-3">
-            <VscSearch
-              className="text-black text-[25px] md:text-[30px] cursor-pointer"
-              onClick={() => navigate("/home")}
-            />
-          </div>
           <p className="text-purple-600 font-bold md:text-[40px] text-[25px]">
             Gia đình Batman
           </p>
-        </div>
-        <div className="flex items-center space-x-10 mb-[40px]">
-          <input
-            type="text"
-            onChange={(e) => e.target.value}
-            placeholder="Tìm kiếm..."
-            className="border-[1px] border-gray-400 rounded-[10px] md:ml-[100px] md:w-[900px] p-3.5 text-[20px] w-[600px]"
-          />
-          <div className="bg-blue-600 rounded-[10px] md:px-9 px-5 md:py-3 py-2 text-white md:w-[335px] flex items-center md:space-x-4 space-x-4">
-            <p className="md:text-[25px] text-[15px] font-bold">
-              Thêm thành viên
-            </p>
-            <BiSolidPlusCircle className="text-white text-[35px]" />
+          <div
+            className="flex items-center space-x-10 cursor-pointer"
+            onClick={handleCreateCode}
+          >
+            <div className="bg-blue-600 rounded-[10px] md:px-9 px-5 md:py-3 py-2 text-white md:w-[300px] flex items-center  justify-center md:space-x-6 space-x-4">
+              <p className="md:text-[25px] text-[15px] font-bold">
+                Tạo lời mời
+              </p>
+              <BiSolidPlusCircle className="text-white text-[35px]" />
+            </div>
           </div>
         </div>
+
         <div className="flex flex-col border-gray-400 border-[1px] rounded-[30px] w-full max-w-[1350px] mr-auto ml-auto space-y-3">
           {dataF.map((member, index) => {
             return (
@@ -263,6 +275,12 @@ const AddFamily = () => {
         </Carousel>
       </div>
       <Footer />
+      <AddInviteCode
+        open={isOpenModal}
+        onClose={handleClose}
+        familyId={familyId}
+        familyName={familyName}
+      />
     </>
   );
 };

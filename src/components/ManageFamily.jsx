@@ -128,9 +128,6 @@ const ManageFamily = () => {
 
         <div className="flex items-center space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch className="text-white text-[30px] md:text-[45px] cursor-pointer" />
-          </div>
-          <div className="rounded-full bg-black flex items-center p-1">
             <RxCross1 className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
         </div>

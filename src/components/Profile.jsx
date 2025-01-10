@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import km1 from "../assets/km1.jpg";
 import "./Profile.scss";
@@ -100,11 +101,11 @@ const Profile = () => {
             onChange={handleImageChange}
           />
         </div>
-        <form
+        <div
           className="content flex items-center justify-center flex-col space-y-6 md:mt-[20px] mt-[20px]"
-          onSubmit={(e) => handleSubmit(e)}
+          // onSubmit={(e) => handleSubmit(e)}
         >
-          <div className="relative border-2 border-black p-3 w-[400px]">
+          {/* <div className="relative border-2 border-black p-3 w-[400px]">
             <label
               className="text-purple-600  font-bold absolute -top-4 px-1 left-3 bg-white"
               htmlFor="username"
@@ -154,13 +155,24 @@ const Profile = () => {
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
             ></input>
-          </div>
-          <div className="flex items-center justify-center">
-            <button className="btn bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold mt-2">
-              Lưu thay đổi
+          </div> */}
+          <div
+            className="flex items-center justify-center mt-[40px]"
+            onClick={() => navigate("/edit-profile")}
+          >
+            <button className="btn bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold mt-2 w-[400px]">
+              Hồ sơ cá nhân
             </button>
           </div>
-        </form>
+          <div
+            className="flex items-center justify-center"
+            onClick={() => navigate("/login")}
+          >
+            <button className="btn bg-red-600 text-white font-bold mt-2 w-[400px]">
+              Đăng xuất
+            </button>
+          </div>
+        </div>
         <Footer />
       </div>
     </>

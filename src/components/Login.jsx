@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import "./Login.scss";
 import gg from "../assets/gg.png";
@@ -21,21 +23,20 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    let res = await login(username, password);
+  //   let res = await login(username, password);
 
-    if (res) {
-      console.log(res.data);
-      dispatch(doLogin(res.data));
-      toast.success("Đăng nhập thành công!");
+  //   if (res) {
+  //     dispatch(doLogin(res.data));
+  //     toast.success("Đăng nhập thành công!");
 
-      navigate("/home");
-    } else {
-      toast.error("Đăng nhập thất bại :(");
-    }
-  };
+  //     navigate("/choose");
+  //   } else {
+  //     toast.error("Đăng nhập thất bại :(");
+  //   }
+  // };
 
   return (
     <>
@@ -43,7 +44,7 @@ const Login = () => {
         <div className="h-30 flex items-center justify-center"></div>
         <form
           className="flex items-center justify-center main bg-white relative flex-col space-y-4 h-fit"
-          onSubmit={(e) => handleSubmit(e)}
+          // onSubmit={(e) => handleSubmit(e)}
         >
           <div className="flex items-center md:space-x-[350px] md:mr-[350px]">
             <IoIosReturnLeft
@@ -125,7 +126,12 @@ const Login = () => {
               Quên mật khẩu?
             </span>
           </div>
-          <button className="bg-purple-600 btnSubmit">Tiếp tục</button>
+          <button
+            className="bg-purple-600 btnSubmit"
+            onClick={() => navigate("/choose")}
+          >
+            Tiếp tục
+          </button>
           <span
             className="text-blue-700 font-bold text-[25px] mr-[190px] cursor-pointer"
             onClick={() => navigate("/signup")}

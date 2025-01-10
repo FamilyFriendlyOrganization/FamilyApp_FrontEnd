@@ -27,20 +27,11 @@ const Welcome = () => {
             </h2>
           </div>
           <div className="clickbtn mt-[40px] space-y-5 flex flex-col justify-center items-center">
-            <button className="flex justify-center items-center space-x-3 w-[310px]">
-              <FaGoogle className="text-green-500 text-[30px] icon" />
-              <h2 className="text-40px font-bold">Đăng nhập bằng Google</h2>
-            </button>
             <button
-              className="flex justify-center items-center space-x-3 w-[310px]"
+              className="flex justify-center items-center w-fit text-center font-bold"
               onClick={() => navigate("/login")}
             >
-              <FaRegCircleUser className="text-black text-[30px] icon" />
-              <h2 className="text-40px font-bold">Đăng nhập bằng tài khoản</h2>
-            </button>
-            <button className="flex justify-center items-center space-x-3 w-[310px]">
-              <FaFacebook className="text-blue-700 text-[30px]" />
-              <h2 className="text-40px font-bold">Đăng nhập bằng Facebook</h2>
+              Đã có tài khoản, đăng nhập ngay
             </button>
             <div className="flex items-center justify-center space-x-4">
               <h2 className="text-white text-[25px]">Chưa có tài khoản?</h2>

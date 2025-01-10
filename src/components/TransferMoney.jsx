@@ -9,38 +9,39 @@ import { FaQrcode } from "react-icons/fa";
 import { FaGift } from "react-icons/fa6";
 import Footer from "./Footer";
 import km1 from "../assets/km1.jpg";
+import ava1 from "../assets/ava1.jpg";
 import { useNavigate } from "react-router-dom";
 
 const dataF = [
   [
-    { name: "Lê Thị Anh" },
-    { name: "Trần Văn Bình" },
-    { name: "Nguyễn Hữu Cường" },
-    { name: "Bùi Minh Nhật" },
-    { name: "Đỗ Thanh Sơn" },
-    { name: "Đặng Thị Thanh" },
-    { name: "Võ Thanh Đạt" },
-    { name: "Lương Thị Hạnh" },
+    { name: "Lê Thị Anh", image: ava1 },
+    { name: "Trần Văn Bình", image: ava1 },
+    { name: "Nguyễn Hữu Cường", image: ava1 },
+    { name: "Bùi Minh Nhật", image: ava1 },
+    { name: "Đỗ Thanh Sơn", image: ava1 },
+    { name: "Đặng Thị Thanh", image: ava1 },
+    { name: "Võ Thanh Đạt", image: ava1 },
+    { name: "Lương Thị Hạnh", image: ava1 },
   ],
   [
-    { name: "Phan Quốc Bảo" },
-    { name: "Ngô Thị Mai" },
-    { name: "Trần Minh Hùng" },
-    { name: "Lý Ngọc Khoa" },
-    { name: "Hoàng Thu Vân" },
-    { name: "Cao Thị Tâm" },
-    { name: "Đinh Quốc Toàn" },
-    { name: "Nguyễn Quốc Trung" },
+    { name: "Phan Quốc Bảo", image: ava1 },
+    { name: "Ngô Thị Mai", image: ava1 },
+    { name: "Trần Minh Hùng", image: ava1 },
+    { name: "Lý Ngọc Khoa", image: ava1 },
+    { name: "Hoàng Thu Vân", image: ava1 },
+    { name: "Cao Thị Tâm", image: ava1 },
+    { name: "Đinh Quốc Toàn", image: ava1 },
+    { name: "Nguyễn Quốc Trung", image: ava1 },
   ],
   [
-    { name: "Nguyễn Đình Mạnh" },
-    { name: "Nguyễn Văn Hậu" },
-    { name: "Đinh Văn Cường" },
-    { name: "Định Thị Trúc" },
-    { name: "Hồ Cường Định" },
-    { name: "Trịnh Trần Phương Hiếu" },
-    { name: "Thạch Trung Kiên" },
-    { name: "Phạm Quỳnh Tố Trân" },
+    { name: "Nguyễn Đình Mạnh", image: ava1 },
+    { name: "Nguyễn Văn Hậu", image: ava1 },
+    { name: "Đinh Văn Cường", image: ava1 },
+    { name: "Định Thị Trúc", image: ava1 },
+    { name: "Hồ Cường Định", image: ava1 },
+    { name: "Trịnh Trần Phương Hiếu", image: ava1 },
+    { name: "Thạch Trung Kiên", image: ava1 },
+    { name: "Phạm Quỳnh Tố Trân", image: ava1 },
   ],
 ];
 const TransferMoney = () => {
@@ -63,48 +64,11 @@ const TransferMoney = () => {
 
         <div className="flex items-center space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch className="text-white text-[30px] md:text-[45px] cursor-pointer" />
-          </div>
-          <div className="rounded-full bg-black flex items-center p-1">
             <RxCross1 className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
         </div>
       </div>
       <div className="main mb-[200px]">
-        <div className="flex findBtn max-w-[600px] bg-gray-100 mt-[-80px] m-auto gap-x-[20px]">
-          <span>
-            <GoSearch
-              className="text-[30px] cursor-pointer font-bold"
-              onClick={() => navigate("/home")}
-            />
-          </span>
-          <input
-            type="text"
-            name="username"
-            placeholder="Tìm kiếm tên người dùng..."
-            className="bg-transparent focus:outline-none"
-          />
-        </div>
-        <div className="border-gray-400 border-[1px] rounded-[30px] w-full max-w-[1350px] mx-auto mt-[30px] md:p-[30px] p-[10px] grid grid-cols-4 gap-[50px]">
-          <div className="flex items-center flex-col space-y-1 cursor-pointer">
-            <CiBank className="text-[100px] text-blue-500" />
-            <p className="text-[40px] font-semibold">Đến</p>
-            <p className="text-[40px] font-semibold">ngân hàng</p>
-          </div>
-          <div className="flex items-center flex-col space-y-1 cursor-pointer">
-            <MdFamilyRestroom className="text-[100px] text-blue-800" />
-            <p className="text-[40px] font-semibold">Đến thành viên</p>
-            <p className="text-[40px] font-semibold">gia đình</p>
-          </div>
-          <div className="flex items-center flex-col space-y-1 cursor-pointer">
-            <FaQrcode className="text-[100px] text-pink-400" />
-            <p className="text-[40px] font-semibold">Quét mã QR</p>
-          </div>
-          <div className="flex items-center flex-col space-y-1 cursor-pointer">
-            <FaGift className="text-[100px] text-purple-600" />
-            <p className="text-[40px] font-semibold">Tặng quà</p>
-          </div>
-        </div>
         <div className="border-gray-400 border-[1px] rounded-[30px] w-full max-w-[1350px] mx-auto mt-[30px] md:p-[30px] p-[10px] md:mt-[50px] ">
           <p className="md:text-[40px] text-[25px] font-bold">Đề xuất</p>
           <div className="border-[1px] border-black md:mt-[20px] md:mb-[20px]"></div>
@@ -114,11 +78,11 @@ const TransferMoney = () => {
                 <div
                   key={index}
                   className="flex flex-col items-center space-y-1 cursor-pointer h-[200px]"
-                  onClick={() => navigate("/send-money")}
+                  onClick={() => navigate("/send-money", { state: { item } })}
                 >
                   <img
                     className="rounded-full cursor-pointer"
-                    src={km1}
+                    src={item.image}
                     style={{ maxHeight: "150px", maxWidth: "150px" }}
                     alt={item.name}
                   />

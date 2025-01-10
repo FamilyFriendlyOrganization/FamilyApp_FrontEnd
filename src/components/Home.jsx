@@ -40,6 +40,7 @@ import { IoNavigateCircleOutline } from "react-icons/io5";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { doLogout } from "../redux/action/userAction";
+import { FaUserGroup } from "react-icons/fa6";
 
 const responsive = {
   superLargeDesktop: {
@@ -61,34 +62,25 @@ const responsive = {
 };
 
 const Home = () => {
-  const isAuthen = useSelector((state) => state.user.isAuthenticated);
+  // const isAuthen = useSelector((state) => state.user.isAuthenticated);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const account = useSelector((state) => state.user.account);
 
   function handleLogout() {
-    dispatch(doLogout());
+    // dispatch(doLogout());
     navigate("/login");
   }
   return (
     <>
       <div className="header bg-home bg-cover bg-no-repeat bg-center w-full h-[120px] z-10	">
         <div className="flex justify-end md:mr-[45px] mr-[20px]">
-          {isAuthen === true ? (
-            <p
-              className="text-white md:text-[25px] text-[25px] cursor-pointer py-1.5"
-              onClick={() => handleLogout()}
-            >
-              Đăng xuất
-            </p>
-          ) : (
-            <p
-              className="text-white md:text-[25px] text-[25px] cursor-pointer py-1.5"
-              onClick={() => navigate("/login")}
-            >
-              Đăng nhập
-            </p>
-          )}
+          <p
+            className="text-white md:text-[25px] text-[25px] cursor-pointer py-1.5"
+            onClick={() => handleLogout()}
+          >
+            Đăng xuất
+          </p>
         </div>
         <div className="flex items-center text-white justify-between ml-[50px] md:ml-[70px] md:mr-[50px] mr-[20px] tp[] ">
           <span
@@ -98,7 +90,10 @@ const Home = () => {
             <RiHome2Line className="text-[40px]" />
             <p className="font-bold text-[40px]">Trang chủ</p>
           </span>
-          <div className="space-x-11 flex items-center relative ">
+          <div
+            className="space-x-11 flex items-center relative"
+            onClick={() => navigate("/notification")}
+          >
             <div className="relative">
               <RiNotification2Line
                 className="text-[40px] cursor-pointer font-bold"
@@ -113,20 +108,6 @@ const Home = () => {
         </div>
       </div>
       <div className="main relative z-10">
-        <div className="flex items-center findBtn w-fit bg-gray-100 mt-[-80px] mx-auto gap-x-20 my-auto">
-          <input
-            type="text"
-            name="username"
-            placeholder="Tìm kiếm..."
-            className="bg-transparent focus:outline-none"
-          />
-          <span className="flex">
-            <GoSearch
-              className="text-[30px] text-pink-600 cursor-pointer font-bold"
-              onClick={() => navigate("/home")}
-            />
-          </span>
-        </div>
         <div className="flex flex-col items-center justify-center md:mt-[70px]">
           <div className="grid grid-cols-4 gap-y-10 md:gap-x-40 items-center justify-items-center gap-x-10">
             <div className="flex flex-col items-center space-y-2">
@@ -172,7 +153,7 @@ const Home = () => {
               <p className="text-gray-500 text-[20px]">Tặng quà</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
-              <MdFamilyRestroom
+              <FaUserGroup
                 className="text-blue-600 text-[50px] cursor-pointer"
                 onClick={() => navigate("/manage-family")}
               />
@@ -181,7 +162,7 @@ const Home = () => {
             <div className="flex flex-col items-center space-y-2">
               <HiOutlineSquaresPlus
                 className="text-[50px] cursor-pointer"
-                onClick={() => navigate("/home")}
+                onClick={() => navigate("/more-features")}
               />
               <p className="text-gray-500 text-[20px]">Các chức năng khác</p>
             </div>

@@ -24,13 +24,13 @@ import Footer from "./Footer";
 
 const data = [
   [
-    { month: "6", Money: 4500 },
-    { month: "7", Money: 3128 },
-    { month: "8", Money: 0 },
+    { month: "7", Money: 4500 },
+    { month: "8", Money: 3128 },
     { month: "9", Money: 0 },
-    { month: "10", Money: 1590 },
-    { month: "11", Money: 2240 },
-    { month: "12", Money: 3490 },
+    { month: "10", Money: 0 },
+    { month: "11", Money: 1590 },
+    { month: "12", Money: 2240 },
+    { month: "01", Money: 3490 },
   ],
   [
     { day: "9", Money: 90 },
@@ -115,19 +115,13 @@ const Eat = () => {
           <div className="rounded-full bg-black flex items-center p-1">
             <IoIosArrowBack
               className="text-white text-[30px] md:text-[45px] cursor-pointer"
-              onClick={() => navigate("/home")}
+              onClick={() => navigate("/money")}
             />
           </div>
           <h1 className="text-white text-[25px] md:text-[35px]">Ăn uống</h1>
         </div>
 
         <div className="flex items-center space-x-10">
-          <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch
-              className="text-white text-[30px] md:text-[45px] cursor-pointer"
-              onClick={() => navigate("/home")}
-            />
-          </div>
           <div className="rounded-full bg-black flex items-center p-1">
             <RxCross1
               className="text-white text-[30px] md:text-[45px] cursor-pointer"
@@ -214,7 +208,7 @@ const Eat = () => {
         <div className="flex flex-col border-gray-400 border-[1px] rounded-[30px] w-full max-w-[1350px] ml-auto mr-auto space-y-8 mb-[70px]">
           <div className="bg-blue-200 day w-full flex items-center">
             <p className="text-[35px] text-black text-start md:ml-[70px] ml-[10px]">
-              30/10/2024
+              11/01/2025
             </p>
           </div>
           {dataF.map((item, index) => (
@@ -244,9 +238,6 @@ const Eat = () => {
               </div>
             </div>
           ))}
-          <p className="text-[35px] text-pink-600 font-bold text-center cursor-pointer">
-            Xem thêm
-          </p>
         </div>
       </div>
       <Footer />

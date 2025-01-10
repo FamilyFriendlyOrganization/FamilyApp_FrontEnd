@@ -12,7 +12,13 @@ export default {
         'welcome':'url(/welcome.jpg)',
         'home':'url(/hp.jpg)',
         'choose':'url(/ch5.jpg)',
-        'gift': 'url(/gift.jpg)'
+        'gift': 'url(/gift.jpg)',
+        'plane': 'url(/plane4.jpg)',
+        'plane1': 'url(/plane1.jpg)',
+        'plane2': 'url(/plane2.jpg)',
+        'plane3': 'url(/plane3.jpg)',
+        'hotel': 'url(/hotel1.jpg)',
+        'sky': 'url(/sky.png)',
       }
     },
   },

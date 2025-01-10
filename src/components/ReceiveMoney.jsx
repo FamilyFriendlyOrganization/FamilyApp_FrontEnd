@@ -22,13 +22,10 @@ const ReceiveMoney = () => {
           <div className="rounded-full bg-black flex items-center p-1">
             <IoIosArrowBack className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
-          <h1 className="text-white text-[25px] md:text-[35px]">Chuyển tiền</h1>
+          <h1 className="text-white text-[25px] md:text-[35px]">Nhận tiền</h1>
         </div>
 
         <div className="flex items-center space-x-10">
-          <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch className="text-white text-[30px] md:text-[45px] cursor-pointer" />
-          </div>
           <div className="rounded-full bg-black flex items-center p-1">
             <RxCross1 className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
@@ -90,10 +87,6 @@ const ReceiveMoney = () => {
                 </div>
               </div>
             ))}
-            <div className="text-pink-600 font-bold cursor-pointer flex items-center justify-center gap-x-[10px]">
-              <p className="text-[30px]">Xem thêm</p>
-              <FaArrowDown className="text-[25px]" />
-            </div>
           </div>
         </div>
       </div>

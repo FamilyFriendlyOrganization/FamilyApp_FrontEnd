@@ -1,0 +1,22 @@
+
+.main{
+    .carousel-wrapper {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .react-multi-carousel-item {
+        display: block; 
+        width: 100%; 
+        padding: 10px;
+        margin: 0 20px;
+    }
+    
+    .carousel-container {
+        width: 100%; 
+    }
+        
+  }

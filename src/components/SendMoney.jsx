@@ -9,10 +9,12 @@ import { LuSalad } from "react-icons/lu";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { FaBicycle } from "react-icons/fa";
 import { CgMoreR } from "react-icons/cg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SendMoney = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+  const { item } = location.state || {};
   return (
     <>
       <div className="flex items-center justify-between bg-purple-800 h-[75px] px-[20px] md:px-[100px]">
@@ -28,9 +30,6 @@ const SendMoney = () => {
 
         <div className="flex items-center space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
-            <IoIosSearch className="text-white text-[30px] md:text-[45px] cursor-pointer" />
-          </div>
-          <div className="rounded-full bg-black flex items-center p-1">
             <RxCross1 className="text-white text-[30px] md:text-[45px] cursor-pointer" />
           </div>
         </div>
@@ -38,11 +37,11 @@ const SendMoney = () => {
       <div className="md:ml-[55px] md:mt-[40px] mt-[20px] md:mb-[-70px] mb-[-100px] flex items-center gap-x-[30px]">
         <img
           className="rounded-full cursor-pointer"
-          src={km1}
+          src={item.image}
           style={{ maxHeight: "100px", maxWidth: "100px" }}
         />
         <p className="md:text-[50px] text-[25px] font-bold">
-          Nguyễn Hữu Nhựt - 0888696869
+          {item.name} - 0888696869
         </p>
       </div>
       <div className="main mb-[50px]">
@@ -77,29 +76,6 @@ const SendMoney = () => {
             </div>
             <div className=" border-[1px] border-gray-500 w-[150px] mt-[40px] flex items-center justify-center">
               <TbGiftCard className="text-[80px] text-pink-500 cursor-pointer" />
-            </div>
-          </div>
-        </div>
-        <div className="border-gray-400 border-[1px] rounded-[30px] w-full max-w-[1350px] mx-auto mt-[50px] md:p-[30px] p-[10px]">
-          <p className="md:text-[40px] text-[25px] font-bold md:px-[50px] px-[10px]">
-            Phân loại chi tiêu
-          </p>
-          <div className="grid grid-cols-4 md:gap-[120px] gap-[25px] md:mt-[50px] mt-[25px] px-[50px] ">
-            <div className="border-gray-400 border-[1px] rounded-[30px] w-full max-w-[200px] flex items-center justify-center flex-col p-3 cursor-pointer space-y-3">
-              <LuSalad className="md:text-[60px] text-[30px] text-green-500" />
-              <p className="md:text-[35px] text-[20px]">Ăn uống</p>
-            </div>
-            <div className="border-gray-400 border-[1px] rounded-[30px] w-full max-w-[200px] flex items-center justify-center flex-col p-3 cursor-pointer space-y-3">
-              <IoBagHandleOutline className="md:text-[60px] text-[30px] text-blue-500" />
-              <p className="md:text-[35px] text-[20px]">Mua sắm</p>
-            </div>
-            <div className="border-gray-400 border-[1px] rounded-[30px] w-full max-w-[200px] flex items-center justify-center flex-col p-3 cursor-pointer space-y-3">
-              <FaBicycle className="md:text-[60px] text-[30px] text-amber-700" />
-              <p className="md:text-[35px] text-[20px]">Di chuyển</p>
-            </div>
-            <div className="border-gray-400 border-[1px] rounded-[30px] w-full max-w-[200px] flex items-center justify-center flex-col p-3 cursor-pointer space-y-3">
-              <CgMoreR className="md:text-[60px] text-[30px] text-purple-500" />
-              <p className="md:text-[35px] text-[20px]">Khác</p>
             </div>
           </div>
         </div>

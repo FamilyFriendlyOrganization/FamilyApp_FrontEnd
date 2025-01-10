@@ -12,10 +12,17 @@ export const updateAccount = (data) => {
       type: "UPDATE_ACCOUNT",
       payload: data,
     };
-  };
+};
   
 export const doLogout = () =>{
   return{
     type: FETCH_USER_LOGOUT_SUCCESS
   }
 }
+
+export const chooseFamily = (data) => {
+  return {
+    type: "CHOOSE_FAMILY",
+    payload: data,
+  };
+};
