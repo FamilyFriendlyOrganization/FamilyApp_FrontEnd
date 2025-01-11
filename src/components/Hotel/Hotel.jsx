@@ -9,6 +9,10 @@ import Carousel from "react-multi-carousel";
 import { IoWaterOutline } from "react-icons/io5";
 import "./Hotel.scss";
 import test from "../../assets/dublin.jpg";
+import ks1 from "../../assets/ks2.jpg";
+import ks2 from "../../assets/ks10.jpg";
+import ks3 from "../../assets/ks11.jpg";
+import ks4 from "../../assets/ks12.jpg";
 import { IoMdStarOutline } from "react-icons/io";
 import "./Hotel.scss";
 const responsive = {
@@ -31,13 +35,14 @@ const responsive = {
 };
 
 const initialBillTitle = [
-  { title: "Vũng Tàu", selected: true },
+  { title: "Vũng Tàu", selected: true, image: ks1 },
   {
     title: "Đà Nẵng",
     selected: false,
+    image: ks2,
   },
-  { title: "Đà Lạt", selected: false },
-  { title: "Nha Trang", selected: false },
+  { title: "Đà Lạt", selected: false, image: ks3 },
+  { title: "Nha Trang", selected: false, image: ks4 },
 ];
 const Hotel = () => {
   const navigate = useNavigate();
@@ -131,7 +136,9 @@ const Hotel = () => {
             </div>
             <button
               className="w-full bg-pink-500 text-white font-semibold py-2 rounded-lg hover:bg-pink-600 mt-[30px]"
-              onClick={() => navigate("/find-hotel", { state: { dataProps } })}
+              onClick={() =>
+                navigate("/find-hotel", { state: { reachLocation } })
+              }
             >
               Tìm kiếm
             </button>
@@ -177,13 +184,10 @@ const Hotel = () => {
               <div>
                 <div
                   className="rounded-xl bg-white shadow-lg w-[600px] h-[450px] relative cursor-pointer"
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate("/room-detail")}
                 >
                   <div className="rounded-l-xl relative">
-                    <img
-                      src={test}
-                      className="w-[600px] h-[200px] rounded-xl"
-                    />
+                    <img src={ks1} className="w-[600px] h-[200px] rounded-xl" />
                     <div className="absolute top-[120px] right-[20px] bg-white shadow-lg rounded-xl p-[10px] w-[220px] flex flex-col space-y-[5px]">
                       <div className="flex items-center justify-between">
                         <p className="font-bold md:text-[20px] text-red-600 ml-[20px]">
@@ -231,24 +235,21 @@ const Hotel = () => {
               <div className="rounded-xl bg-white shadow-lg w-[600px] h-[450px] relative">
                 <div
                   className="rounded-xl bg-white shadow-lg w-[600px] h-[450px] relative cursor-pointer"
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate("/room-detail")}
                 >
                   <div className="rounded-l-xl relative">
-                    <img
-                      src={test}
-                      className="w-[600px] h-[200px] rounded-xl"
-                    />
+                    <img src={ks2} className="w-[600px] h-[200px] rounded-xl" />
                     <div className="absolute top-[120px] right-[20px] bg-white shadow-lg rounded-xl p-[10px] w-[220px] flex flex-col space-y-[5px]">
                       <div className="flex items-center justify-between">
                         <p className="font-bold md:text-[20px] text-red-600 ml-[20px]">
-                          -48%
+                          -54%
                         </p>
                         <p className="md:text-[20px] text-gray-400 line-through">
-                          21,123,212đ
+                          11,497,716đ
                         </p>
                       </div>
                       <p className="font-bold md:text-[20px] text-red-600 text-right">
-                        12,487,126đ
+                        5,147,247đ
                       </p>
                       <p className=" md:text-[15px] text-gray-400 text-right">
                         Phòng/đêm
@@ -265,17 +266,19 @@ const Hotel = () => {
                       <IoMdStarOutline className="font-bold text-red-400 text-[40px]" />
                     </div>
                     <p className="font-bold md:text-[30px] px-[30px] mt-[5px]">
-                      Pegasus Hotel
+                      Melia Vinpearl Danang Riverfront
                     </p>
                     <p className="md:text-[30px] px-[30px] mt-[5px]">
-                      6 Trần Quý Cáp, Vũng Tàu
+                      341 Trần Hưng Đạo, Đà Nẵng
                     </p>
                     <div className="px-[30px] flex items-center mt-[10px] space-x-[30px]">
                       <div className="rounded-md bg-blue-600 p-1 text-white md:text-[20px] font-bold">
                         10/10
                       </div>
-                      <p className="font-bold md:text-[20px]">Tuyệt vời lắm</p>
-                      <p className=" md:text-[20px]">(302 lượt đánh giá)</p>
+                      <p className="font-bold md:text-[20px]">
+                        Dịch vụ xuất sắc
+                      </p>
+                      <p className=" md:text-[20px]">(682 lượt đánh giá)</p>
                     </div>
                   </div>
                 </div>
@@ -286,24 +289,24 @@ const Hotel = () => {
                 <div className="rounded-xl bg-white shadow-lg w-[600px] h-[450px] relative">
                   <div
                     className="rounded-xl bg-white shadow-lg w-[600px] h-[450px] relative cursor-pointer"
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/room-detail")}
                   >
                     <div className="rounded-l-xl relative">
                       <img
-                        src={test}
+                        src={ks3}
                         className="w-[600px] h-[200px] rounded-xl"
                       />
                       <div className="absolute top-[120px] right-[20px] bg-white shadow-lg rounded-xl p-[10px] w-[220px] flex flex-col space-y-[5px]">
                         <div className="flex items-center justify-between">
                           <p className="font-bold md:text-[20px] text-red-600 ml-[20px]">
-                            -48%
+                            -54%
                           </p>
                           <p className="md:text-[20px] text-gray-400 line-through">
-                            21,123,212đ
+                            12,123,448đ
                           </p>
                         </div>
                         <p className="font-bold md:text-[20px] text-red-600 text-right">
-                          12,487,126đ
+                          5,847,247đ
                         </p>
                         <p className=" md:text-[15px] text-gray-400 text-right">
                           Phòng/đêm
@@ -320,19 +323,19 @@ const Hotel = () => {
                         <IoMdStarOutline className="font-bold text-red-400 text-[40px]" />
                       </div>
                       <p className="font-bold md:text-[30px] px-[30px] mt-[5px]">
-                        Pegasus Hotel
+                        Akama Boutique Đà Lạt
                       </p>
                       <p className="md:text-[30px] px-[30px] mt-[5px]">
-                        6 Trần Quý Cáp, Vũng Tàu
+                        36 Đường Trần Đại Nghĩa, Đà Lạt
                       </p>
                       <div className="px-[30px] flex items-center mt-[10px] space-x-[30px]">
                         <div className="rounded-md bg-blue-600 p-1 text-white md:text-[20px] font-bold">
                           10/10
                         </div>
                         <p className="font-bold md:text-[20px]">
-                          Tuyệt vời lắm
+                          Dịch vụ xuất sắc
                         </p>
-                        <p className=" md:text-[20px]">(302 lượt đánh giá)</p>
+                        <p className=" md:text-[20px]">(324 lượt đánh giá)</p>
                       </div>
                     </div>
                   </div>
@@ -344,24 +347,24 @@ const Hotel = () => {
                 <div className="rounded-xl bg-white shadow-lg w-[600px] h-[450px] relative">
                   <div
                     className="rounded-xl bg-white shadow-lg w-[600px] h-[450px] relative cursor-pointer"
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/room-detail")}
                   >
                     <div className="rounded-l-xl relative">
                       <img
-                        src={test}
+                        src={ks4}
                         className="w-[600px] h-[200px] rounded-xl"
                       />
                       <div className="absolute top-[120px] right-[20px] bg-white shadow-lg rounded-xl p-[10px] w-[220px] flex flex-col space-y-[5px]">
                         <div className="flex items-center justify-between">
                           <p className="font-bold md:text-[20px] text-red-600 ml-[20px]">
-                            -48%
+                            -40%
                           </p>
                           <p className="md:text-[20px] text-gray-400 line-through">
-                            21,123,212đ
+                            3,720,745đ
                           </p>
                         </div>
                         <p className="font-bold md:text-[20px] text-red-600 text-right">
-                          12,487,126đ
+                          2,275,124đ
                         </p>
                         <p className=" md:text-[15px] text-gray-400 text-right">
                           Phòng/đêm
@@ -378,19 +381,17 @@ const Hotel = () => {
                         <IoMdStarOutline className="font-bold text-red-400 text-[40px]" />
                       </div>
                       <p className="font-bold md:text-[30px] px-[30px] mt-[5px]">
-                        Pegasus Hotel
+                        Beautiful Panorama Nha Trang
                       </p>
                       <p className="md:text-[30px] px-[30px] mt-[5px]">
-                        6 Trần Quý Cáp, Vũng Tàu
+                        02 Nguyễn Thị Minh Khai, Nha Trang
                       </p>
                       <div className="px-[30px] flex items-center mt-[10px] space-x-[30px]">
                         <div className="rounded-md bg-blue-600 p-1 text-white md:text-[20px] font-bold">
                           10/10
                         </div>
-                        <p className="font-bold md:text-[20px]">
-                          Tuyệt vời lắm
-                        </p>
-                        <p className=" md:text-[20px]">(302 lượt đánh giá)</p>
+                        <p className="font-bold md:text-[20px]">Nên ghé thăm</p>
+                        <p className=" md:text-[20px]">((549 lượt đánh giá)</p>
                       </div>
                     </div>
                   </div>

@@ -50,7 +50,7 @@ const Bill = () => {
   const { item } = location.state || {};
   const dataF = [
     { title: "Tên khách hàng", value: "Nguyễn Văn A" },
-    { title: "Mã số khách hàng", value: item.customerID },
+    { title: "Mã số khách hàng", value: "123" },
     { title: "Nơi đăng ký dịch vụ", value: "Thành phố Hồ Chí Minh" },
     { title: "Địa chỉ", value: "Thành phố Hồ Chí Minh" },
     { title: "Phương thức thanh toán", value: "Tài khoản ngân hàng" },

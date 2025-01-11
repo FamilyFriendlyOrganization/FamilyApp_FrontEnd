@@ -72,33 +72,33 @@ const CalendarNoti = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between bg-purple-800 h-[75px] px-[20px] md:px-[100px]">
-        <div className="flex items-center space-x-10">
+      <div className="flex flex-wrap items-center justify-between bg-purple-800 h-[75px] px-4 md:px-[100px]">
+        <div className="flex items-center space-x-5 md:space-x-10">
           <div
             className="rounded-full bg-black flex items-center p-1"
             onClick={() => navigate("/home")}
           >
-            <IoIosArrowBack className="text-white text-[30px] md:text-[45px] cursor-pointer" />
+            <IoIosArrowBack className="text-white text-[20px] md:text-[45px] cursor-pointer" />
           </div>
-          <h1 className="text-white text-[25px] md:text-[35px]">Đặt lịch</h1>
+          <h1 className="text-white text-[20px] md:text-[35px]">Đặt lịch</h1>
         </div>
 
-        <div className="flex items-center space-x-10">
+        <div className="flex items-center space-x-5 md:space-x-10">
           <div className="rounded-full bg-black flex items-center p-1">
-            <RxCross1 className="text-white text-[30px] md:text-[45px] cursor-pointer" />
+            <RxCross1 className="text-white text-[20px] md:text-[45px] cursor-pointer" />
           </div>
         </div>
       </div>
-      <div className="main space-y-[50px] mb-[100px]">
-        <div className="mt-[-80px] flex items-center justify-center gap-x-[200px]">
-          {/* <FaBars className="text-[30px]" /> */}
-          <p className="font-bold text-black md:text-[50px] text-[20px]">
+
+      <div className="main space-y-[30px] md:space-y-[50px] mb-[100px] px-4 md:px-0">
+        <div className="mt-[-50px] md:mt-[-80px] flex flex-wrap items-center justify-between gap-y-4">
+          <p className="font-bold text-black text-[20px] md:text-[50px] md:ml-[300px]">
             Tháng {month} {year}
           </p>
 
-          <div className="flex items-center gap-x-[50px] cursor-pointer">
+          <div className="flex items-center gap-x-5 md:gap-x-[50px]">
             <FaArrowLeft
-              className="text-[40px]"
+              className="text-[20px] md:text-[40px] cursor-pointer"
               onClick={() => {
                 if (month - 1 < 1) {
                   setMonth(12);
@@ -109,11 +109,11 @@ const CalendarNoti = () => {
               }}
             />
             <FaArrowRight
-              className={`text-[40px] cursor-pointer flex-shrink-0 ${
+              className={`text-[20px] md:text-[40px] ${
                 month === new Date().getMonth() + 1 &&
                 year === new Date().getFullYear()
                   ? "text-gray-400 cursor-not-allowed"
-                  : ""
+                  : "cursor-pointer"
               }`}
               onClick={() => {
                 if (
@@ -132,15 +132,16 @@ const CalendarNoti = () => {
               }}
             />
           </div>
-          <div className="bg-blue-600 rounded-[10px] md:px-2   px-5 md:py-2 py-2 text-white md:w-[100px] flex items-center  justify-center md:space-x-6 space-x-4">
+
+          <div className="bg-blue-600 rounded-[10px] px-5 py-2 text-white flex items-center justify-center">
             <BiSolidPlusCircle
-              className="text-white text-[35px] cursor-pointer"
+              className="text-white text-[25px] md:text-[35px] cursor-pointer"
               onClick={() => navigate("/create-note")}
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-7 gap-2 space-y-2">
+        <div className="grid grid-cols-7 gap-2 space-y-2 text-sm md:text-base">
           {dataW.map((weekDay, index) => (
             <div
               key={index}
@@ -152,8 +153,8 @@ const CalendarNoti = () => {
           {days.map((dayInfo, index) => (
             <div
               key={index}
-              onClick={handleOpenModal}
-              className={`h-[90px] flex items-center justify-center border cursor-pointer ${
+              onClick={() => handleOpenModal(dayInfo)}
+              className={`h-[50px] md:h-[90px] flex items-center justify-center border cursor-pointer ${
                 dayInfo.currentMonth ? "text-black" : "text-gray-300"
               }`}
             >
@@ -162,6 +163,7 @@ const CalendarNoti = () => {
           ))}
         </div>
       </div>
+
       <Footer />
     </>
   );

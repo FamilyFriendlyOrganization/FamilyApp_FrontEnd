@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosArrowBack, IoIosSearch } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,8 @@ import Footer from "./Footer";
 
 const CreateNote = () => {
   const navigate = useNavigate();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   return (
     <>
       <div className="flex items-center justify-between bg-purple-800 h-[75px] px-[20px] md:px-[100px]">
@@ -37,12 +39,13 @@ const CreateNote = () => {
               >
                 Chủ đề:
               </label>
-              <div
-                className="mt-2 border border-gray-300 py-3 px-4 rounded-md text-lg md:text-xl text-gray-900 bg-gray-50"
-                id="person"
-              >
-                Chúc mừng sinh nhật
-              </div>
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Điền chủ đề"
+                className="mt-2 border border-gray-300 py-3 px-4 w-full rounded-md text-lg md:text-xl text-gray-900 bg-gray-50"
+              ></input>
             </div>
             <div>
               <label
@@ -51,12 +54,13 @@ const CreateNote = () => {
               >
                 Nội dung:
               </label>
-              <div
-                className="mt-2 border border-gray-300 py-3 px-4 rounded-md text-lg md:text-xl text-gray-900 bg-gray-50"
-                id="person"
-              >
-                Chúc mừng sinh nhật
-              </div>
+              <input
+                type="text"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Điền nội dung"
+                className="mt-2 border border-gray-300 py-3 px-4 w-full rounded-md text-lg md:text-xl text-gray-900 bg-gray-50"
+              ></input>
             </div>
           </div>
         </div>

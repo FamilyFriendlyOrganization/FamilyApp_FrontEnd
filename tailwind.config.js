@@ -19,6 +19,7 @@ export default {
         'plane3': 'url(/plane3.jpg)',
         'hotel': 'url(/hotel1.jpg)',
         'sky': 'url(/sky.png)',
+        'ks': 'url(/ks.png)'
       }
     },
   },

@@ -260,7 +260,8 @@ const MoneyManagement = () => {
                       }
                       if (item.name === "Mua sắm") {
                         navigate("/shopping");
-                      } else {
+                      }
+                      if (item.name === "Di chuyển") {
                         navigate("/moving");
                       }
                     }}
