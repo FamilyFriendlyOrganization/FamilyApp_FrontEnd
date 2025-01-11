@@ -21,7 +21,7 @@ const Result = () => {
           <div className="rounded-full bg-black flex items-center p-1">
             <IoIosArrowBack
               className="text-white text-[30px] md:text-[45px] cursor-pointer"
-              onClick={() => navigate("/send-money")}
+              onClick={() => navigate("/home")}
             />
           </div>
           <h1 className="text-white text-[25px] md:text-[35px]">

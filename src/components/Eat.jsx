@@ -224,13 +224,6 @@ const Eat = () => {
                   Chuyển tiền đến <i>{item.name}</i>
                 </p>
                 <div className="flex md:space-x-[500px] space-x-[100px] items-center">
-                  <div className=" p-2 rounded-[30px] border-[1px] border-black bg-gray-200 flex items-center space-x-4 cursor-pointer">
-                    <LuSalad className="text-[30px] text-green-500" />
-                    <p className="text-black font-semibold text-[20px]">
-                      Ăn uống
-                    </p>
-                    <IoIosArrowDown className="text-[30px] text-black" />
-                  </div>
                   <p className="text-black font-bold md:text-[25px] text-[25px]">
                     -{item.money} VNĐ
                   </p>
